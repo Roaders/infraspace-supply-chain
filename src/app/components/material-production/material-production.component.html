@@ -1,11 +1,37 @@
-<div class="d-flex align-items-center">
+<div class="border rounded p-2 m-2">
+    <div class="d-flex align-items-center">
 
-    <div>{{productionRate}} {{material}}/min from {{factoryCount}}</div>
-
-    <div class="px-1 d-inline" style="max-width: 5rem;">
-        <input type="number" class="form-control" [value]="factoryCount" min="1" (change)="updateFactoryCount($event)">
+        <div>{{productionRate}} {{material}}/min from</div>
+    
+        <div class="px-1 d-inline" style="max-width: 5rem;">
+            <input type="number" class="form-control" [value]="factoryCount" min="1" (change)="updateFactoryCount($event)">
+        </div>
+    
+        <div *ngIf="materialFactories.length === 1" class="px-1">{{selectedFactory?.name}}</div>
+    
+        <div ngbDropdown *ngIf="materialFactories.length > 1" class="px-1">
+            
+            <button type="button" class="btn btn-outline-primary" id="selectionDropdown"
+                ngbDropdownToggle>{{selectedFactory?.name}}</button>
+            <div ngbDropdownMenu aria-labelledby="selectionDropdown" class="material-drop-down">
+                <button ngbDropdownItem *ngFor="let factory of materialFactories"
+                    (click)="selectFactory(factory)">{{factory.name}}</button>
+            </div>
+        </div>
+    
     </div>
 
-    <div class="px-1">{{selectedFactory?.name}}</div>
+    <div *ngIf="components.length > 0">
+        <div>
+            Requires:
+        </div>
+    
+        <ul>
+            <li *ngFor="let component of components">
+                <div>{{getComponentRate(component)}} {{component}}/min</div>
+                <material-production [material]="component"></material-production>
+            </li>
+        </ul>
+    </div>
 
 </div>

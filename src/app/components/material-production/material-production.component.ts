@@ -19,7 +19,7 @@ export class MaterialProductionComponent {
         this.reset();
         this._material = value;
 
-        this.updateFactory();
+        this.updateFactories();
     }
 
     private _productionRate = '0';
@@ -42,10 +42,35 @@ export class MaterialProductionComponent {
 
     private _materialFactories: IFactory[] = [];
 
+    public get materialFactories(): IFactory[] {
+        return this._materialFactories;
+    }
+
     private _selectedFactory: IFactory | undefined;
 
     public get selectedFactory(): IFactory | undefined {
         return this._selectedFactory;
+    }
+
+    public get components(): Material[] {
+        const input = this._selectedFactory?.input || {};
+
+        return Object.keys(input) as Material[];
+    }
+
+    public getComponentRate(component: Material): string {
+        if (this._selectedFactory == null) {
+            return '0';
+        }
+
+        return getRate(this._selectedFactory, component, this._factoryCount, 'input').toFixed(1);
+    }
+
+    public selectFactory(factory: IFactory): void {
+        this._selectedFactory = factory;
+        this._factoryCount = 1;
+
+        this.updateProductionRate();
     }
 
     public updateFactoryCount(value: Event) {
@@ -55,7 +80,7 @@ export class MaterialProductionComponent {
         this.updateProductionRate();
     }
 
-    private updateFactory(): void {
+    private updateFactories(): void {
         if (this._material == null) {
             this.reset();
             return;
