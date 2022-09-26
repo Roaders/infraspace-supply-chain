@@ -1,0 +1,11 @@
+<div class="d-flex align-items-center">
+
+    <div>{{productionRate}} {{material}}/min from {{factoryCount}}</div>
+
+    <div class="px-1 d-inline" style="max-width: 5rem;">
+        <input type="number" class="form-control" [value]="factoryCount" min="1" (change)="updateFactoryCount($event)">
+    </div>
+
+    <div class="px-1">{{selectedFactory?.name}}</div>
+
+</div>
