@@ -6,8 +6,11 @@ import { getFactories, getRate } from '../../helpers';
 @Component({
     selector: 'material-production',
     templateUrl: './material-production.component.html',
+    styleUrls: ['./material-production.component.scss'],
 })
 export class MaterialProductionComponent {
+    private _visibilityLookup: Partial<Record<Material, boolean>> = {};
+
     private _material: Material | undefined;
 
     @Input()
@@ -80,6 +83,14 @@ export class MaterialProductionComponent {
         this.updateProductionRate();
     }
 
+    public getVisibility(component: Material): boolean {
+        return this._visibilityLookup[component] ?? true;
+    }
+
+    public toggleVisibility(component: Material): void {
+        this._visibilityLookup[component] = !this.getVisibility(component);
+    }
+
     private updateFactories(): void {
         if (this._material == null) {
             this.reset();
@@ -106,5 +117,6 @@ export class MaterialProductionComponent {
         this._materialFactories = [];
         this._material = undefined;
         this._factoryCount = 1;
+        this._visibilityLookup = {};
     }
 }

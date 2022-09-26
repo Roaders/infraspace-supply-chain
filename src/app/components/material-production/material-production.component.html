@@ -28,8 +28,11 @@
     
         <ul>
             <li *ngFor="let component of components">
-                <div>{{getComponentRate(component)}} {{component}}/min</div>
-                <material-production [material]="component"></material-production>
+                <div class="d-flex justify-content-between hover-button">
+                    <span>{{getComponentRate(component)}} {{component}}/min</span>
+                    <button type="button" class="btn btn-secondary btn-sm" (click)="toggleVisibility(component)">{{getVisibility(component) ? 'Hide' : 'Show'}}</button>
+                </div>
+                <material-production *ngIf="getVisibility(component)" [material]="component"></material-production>
             </li>
         </ul>
     </div>
