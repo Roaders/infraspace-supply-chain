@@ -51,13 +51,13 @@ import {
 } from './research-buildings';
 
 export const factoryLookup: FactoryLookup = {
-    Sand: [SandMine, LargeSandMine],
-    Sulphur: [SulphurMine, LargeSulphurMine],
-    Iron: [IronMine, LargeIronMine],
-    Copper: [CopperMine, LargeCopperMine],
-    Aluminum: [AluminumMine, LargeAluminumMine],
-    Uranium: [UraniumMine, LargeUraniumMine],
-    Iridium: [IridiumMine, LargeIridiumMine],
+    Sand: [LargeSandMine, SandMine],
+    Sulphur: [LargeSulphurMine, SulphurMine],
+    Iron: [LargeIronMine, IronMine],
+    Copper: [LargeCopperMine, CopperMine],
+    Aluminum: [LargeAluminumMine, AluminumMine],
+    Uranium: [LargeUraniumMine, UraniumMine],
+    Iridium: [LargeIridiumMine, IridiumMine],
     Adamantine: [ColossalAdamantineDrill],
 
     Electronics: [ElectronicsFactory],
@@ -85,11 +85,11 @@ export const factoryLookup: FactoryLookup = {
     'Yellow Science Pack': [YellowSciencePackFactory],
     'Red Science Pack': [RedSciencePackFactory],
 
-    Water: [WaterAirFilter, GroundWaterExtractor],
-    Methane: [MethaneDrill, MethaneFermentationPlant],
+    Water: [GroundWaterExtractor, WaterAirFilter],
+    Methane: [MethaneFermentationPlant, MethaneDrill],
 
-    Oxygen: [AtmosphereProcessor, OxygenProcessor],
-    Carbon: [AtmosphereProcessor, CarbonProcessor],
+    Oxygen: [OxygenProcessor, AtmosphereProcessor],
+    Carbon: [CarbonProcessor, AtmosphereProcessor],
     'Survival Food': [SimpleFarm],
     Fertilizer: [FertilizerFactory],
     Vegetables: [VegetableFarm],

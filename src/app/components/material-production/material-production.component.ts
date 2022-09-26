@@ -19,15 +19,34 @@ export class MaterialProductionComponent {
     }
 
     public set material(value: Material | undefined) {
+        if (this._material === value) {
+            return;
+        }
         this.reset();
         this._material = value;
 
         this.updateFactories();
     }
 
-    private _productionRate = '0';
+    private _requiredRate = 0;
 
-    public get productionRate(): string {
+    @Input()
+    public get requiredRate(): number {
+        return this._requiredRate;
+    }
+
+    public set requiredRate(value: number) {
+        if (this._requiredRate === value) {
+            return;
+        }
+        this._requiredRate = value;
+
+        this.updateRequiredFactoryCount();
+    }
+
+    private _productionRate = 0;
+
+    public get productionRate(): number {
         return this._productionRate;
     }
 
@@ -38,6 +57,9 @@ export class MaterialProductionComponent {
     }
 
     private set factoryCount(value: number) {
+        if (this._factoryCount === value) {
+            return;
+        }
         this._factoryCount = value;
 
         this.updateProductionRate();
@@ -61,19 +83,19 @@ export class MaterialProductionComponent {
         return Object.keys(input) as Material[];
     }
 
-    public getComponentRate(component: Material): string {
+    public getComponentRate(component: Material): number {
         if (this._selectedFactory == null) {
-            return '0';
+            return 0;
         }
 
-        return getRate(this._selectedFactory, component, this._factoryCount, 'input').toFixed(1);
+        return getRate(this._selectedFactory, component, this._factoryCount, 'input');
     }
 
     public selectFactory(factory: IFactory): void {
         this._selectedFactory = factory;
         this._factoryCount = 1;
 
-        this.updateProductionRate();
+        this.updateRequiredFactoryCount();
     }
 
     public updateFactoryCount(value: Event) {
@@ -104,12 +126,25 @@ export class MaterialProductionComponent {
     }
 
     private updateProductionRate() {
-        if (this._material == null || this._selectedFactory == null) {
-            this._productionRate = '0';
-            return;
+        this._productionRate = this.calculateRate(this._factoryCount);
+    }
+
+    private updateRequiredFactoryCount() {
+        if (this._requiredRate !== 0) {
+            const ratePerSingleFactory = this.calculateRate(1);
+
+            this._factoryCount = Math.ceil(this._requiredRate / ratePerSingleFactory);
         }
 
-        this._productionRate = getRate(this._selectedFactory, this._material, this._factoryCount).toFixed(1);
+        this.updateProductionRate();
+    }
+
+    private calculateRate(factoryCount: number) {
+        if (this._material == null || this._selectedFactory == null) {
+            return 0;
+        }
+
+        return getRate(this._selectedFactory, this._material, factoryCount);
     }
 
     private reset() {

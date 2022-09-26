@@ -28,7 +28,6 @@ export const Materials = [
     'Industrial Robot',
     'High Tech Tools',
     'AI Control Unit',
-    'Holo-Display',
     'VR-Edutainment',
     'Survival Food',
     'Good Meal',

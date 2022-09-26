@@ -21,8 +21,8 @@ export const LargeSulphurMine: IFactory<'Sulphur'> = {
 export const LargeIronMine: IFactory<'Iron'> = {
     name: 'Large Iron Mine',
     buildCost: { Concrete: 104 },
-    duration: 3.2,
-    power: 1.6,
+    duration: 1.6,
+    power: 3.6,
     workers: 8,
     output: { Iron: 1 },
 };
