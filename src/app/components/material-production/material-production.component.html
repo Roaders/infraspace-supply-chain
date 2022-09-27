@@ -23,16 +23,12 @@
     
     </div>
 
-    <div *ngIf="model.children.length > 0">
-        <div>
-            Requires:
-        </div>
+    <div class="pt-2" *ngIf="model.children.length > 0">
     
         <ul>
-            <li *ngFor="let component of model.children">
-                <div class="d-flex justify-content-between hover-button">
+            <li class="p-1" *ngFor="let component of model.children">
+                <div class="d-flex justify-content-between hover-button p-2 rounded bg-primary text-white" (click)="toggleVisibility(component.material)">
                     <span>{{model.getRequiredComponentRate(component.material) | number: '1.0-2'}} {{component.material}}/min</span>
-                    <button type="button" class="btn btn-secondary btn-sm" (click)="toggleVisibility(component.material)">{{getVisibility(component.material) ? 'Hide' : 'Show'}}</button>
                 </div>
                 <material-production *ngIf="getVisibility(component.material)" [model]="component" ></material-production>
             </li>
