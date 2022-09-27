@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { Material } from '../../contracts';
 import {
@@ -13,13 +13,22 @@ import {
 export class SupplyChainComponent {
     constructor(private productionFactory: MaterialProductionModelFactory) {}
 
+    private _material: Material | undefined;
+
+    @Input()
+    public get material(): Material | undefined {
+        return this._material;
+    }
+
+    public set material(value: Material | undefined) {
+        this._material = value;
+
+        this._productionModel = value != null ? this.productionFactory.create(value) : undefined;
+    }
+
     private _productionModel: MaterialProductionModel<Material> | undefined;
 
     public get productionModel(): MaterialProductionModel<Material> | undefined {
         return this._productionModel;
-    }
-
-    public onMaterialSelected(material?: Material) {
-        this._productionModel = material != null ? this.productionFactory.create(material) : undefined;
     }
 }

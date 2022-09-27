@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container h-100 d-flex flex-column">
     <h1>Infraspace Supply Chain</h1>
 
-    <div class="row">
+    <material-selector (selectedMaterialChange)="onMaterialSelected($event)"></material-selector>
 
-        <div class="col-sm">
-            <supply-chain></supply-chain>
-        </div>
+    <div class="row flex-grow-1 collapsible">
+
+        <supply-chain class="col-sm h-100 collapsible" [material]="material"></supply-chain>
 
     </div>
 

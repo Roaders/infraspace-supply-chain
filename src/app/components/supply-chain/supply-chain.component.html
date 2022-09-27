@@ -1,6 +1,9 @@
-<div>
-    <material-selector (selectedMaterialChange)="onMaterialSelected($event)"></material-selector>
+<div *ngIf="productionModel != null" class="d-flex flex-column h-100 collapsible">
 
-    <material-production *ngIf="productionModel != null" [model]="productionModel"></material-production>
+    <material-production class="overflow-auto collapsible" [model]="productionModel"></material-production>
+
+    <div>
+        Totals:
+    </div>
 
 </div>
