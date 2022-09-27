@@ -3,9 +3,11 @@
 
         <div>{{model.productionRate | number: '1.0-2'}} {{model.material}}/min from</div>
     
-        <div class="px-1 d-inline" style="max-width: 5rem;">
+        <div *ngIf="model.topLevel" class="px-1 d-inline" style="max-width: 5rem;">
             <input type="number" class="form-control" [value]="model.factoryCount" min="1" (change)="updateFactoryCount($event)">
         </div>
+
+        <div class="px-1" *ngIf="!model.topLevel">{{model.factoryCount}}</div>
     
         <div *ngIf="model.materialFactories.length === 1" class="px-1">{{model.selectedFactory.name}}</div>
     

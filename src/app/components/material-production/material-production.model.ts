@@ -5,13 +5,17 @@ import { getFactories, getRate } from '../../helpers';
 
 @Injectable()
 export class MaterialProductionModelFactory {
-    public create<T extends Material>(material: T): MaterialProductionModel<T> {
-        return new MaterialProductionModel<T>(material, this);
+    public create<T extends Material>(material: T, topLevel = false): MaterialProductionModel<T> {
+        return new MaterialProductionModel<T>(material, this, topLevel);
     }
 }
 
 export class MaterialProductionModel<T extends Material = Material> {
-    constructor(public readonly material: T, private childFactory: MaterialProductionModelFactory) {
+    constructor(
+        public readonly material: T,
+        private childFactory: MaterialProductionModelFactory,
+        public readonly topLevel: boolean
+    ) {
         this._materialFactories = getFactories(material);
         this._selectedFactory = this._materialFactories[0];
 
@@ -74,6 +78,14 @@ export class MaterialProductionModel<T extends Material = Material> {
 
         this.updateChildren();
         this.updateRequiredFactoryCount();
+    }
+
+    public hierarchicalFactorySelection(factory: IFactory) {
+        if (this.materialFactories.includes(factory)) {
+            this.selectedFactory = factory;
+        }
+
+        this._children.forEach((child) => child.hierarchicalFactorySelection(factory));
     }
 
     private _children: MaterialProductionModel[] = [];

@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { materialize } from 'rxjs';
 
 import { FactoryTotals, IFactory, Material } from '../../contracts';
 import { getRate } from '../../helpers';

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './components/app/app.component';
+import { BulkFactorySelectorComponent } from './components/bulk-factory-selector/bulk-factory-selector.component';
 import { MaterialProductionComponent } from './components/material-production/material-production.component';
 import { MaterialSelectorComponent } from './components/material-selector/material-selector.component';
 import { SupplyChainComponent } from './components/supply-chain/supply-chain.component';
@@ -17,6 +18,7 @@ import { TotalsDisplayComponent } from './components/totals-display/totals-displ
         SupplyChainBrowserComponent,
         MaterialProductionComponent,
         TotalsDisplayComponent,
+        BulkFactorySelectorComponent,
     ],
     imports: [BrowserModule, NgbModule],
     providers: [],
