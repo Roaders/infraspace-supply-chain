@@ -31,8 +31,8 @@ jobs:
         if: ${{ steps.release.outputs.released == 'true' }}
         run: echo Release ID ${{ steps.release.outputs.release_id }}
 
-      - name: Publish
-        if: steps.release.outputs.released == 'true'
-        uses: JS-DevTools/npm-publish@v1
+      - name: Deploy 🚀
+        if: ${{ steps.release.outputs.released == 'true' }}
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          token: ${{ secrets.NPM_TOKEN }}
+          folder: build/infraspace-supply-chain
