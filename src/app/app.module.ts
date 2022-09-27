@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import npmPackage from '../../package.json';
 import { AppComponent } from './components/app/app.component';
 import { BulkFactorySelectorComponent } from './components/bulk-factory-selector/bulk-factory-selector.component';
 import { MaterialProductionComponent } from './components/material-production/material-production.component';
@@ -24,4 +25,8 @@ import { TotalsDisplayComponent } from './components/totals-display/totals-displ
     providers: [],
     bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+    constructor() {
+        window.document.title = `Infraspace Supply Chain v${npmPackage.version}`;
+    }
+}
