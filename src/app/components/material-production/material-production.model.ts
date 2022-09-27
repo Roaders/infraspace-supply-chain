@@ -19,9 +19,8 @@ export class MaterialProductionModel<T extends Material = Material> {
         this._materialFactories = getFactories(material);
         this._selectedFactory = this._materialFactories[0];
 
-        this.updateProductionRate();
-
         this.updateChildren();
+        this.updateProductionRate();
     }
 
     private _requiredRate = 0;

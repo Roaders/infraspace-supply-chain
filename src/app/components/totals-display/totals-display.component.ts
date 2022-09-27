@@ -15,8 +15,18 @@ export class TotalsDisplayComponent {
     private _totalWorkers = 0;
     private _totalPower = 0;
 
+    private _count = 0;
+
     @Input()
-    public count = 0;
+    public get count(): number {
+        return this._count;
+    }
+
+    public set count(value: number) {
+        this._count = value;
+
+        this.generateFactories();
+    }
 
     @Input()
     public factory: IFactory | undefined;
