@@ -15,17 +15,17 @@
             <table>
                 <tr *ngFor="let material of buildMaterials">
                     <td class="pe-3">{{material}}:</td>
-                    <td>{{getBuildMaterialCost(material)}}</td>
+                    <td>{{getBuildMaterialCost(material) | number: '1.0-1'}}</td>
                 </tr>
                 
                 <tr>
                     <td class="pe-3">Power:</td>
-                    <td>{{totalPower}}</td>
+                    <td>{{totalPower | number: '1.0-1'}}</td>
                 </tr>
                 
                 <tr>
                     <td class="pe-3">Workers:</td>
-                    <td>{{totalWorkers}}</td>
+                    <td>{{totalWorkers | number: '1.0-1'}}</td>
                 </tr>
             </table>
         </div>
