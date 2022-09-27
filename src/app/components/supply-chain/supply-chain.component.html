@@ -2,8 +2,6 @@
 
     <material-production class="overflow-auto collapsible" [model]="productionModel"></material-production>
 
-    <div>
-        Totals:
-    </div>
+    <totals-display [totals]="productionModel.getTotals()" [count]="productionModel.factoryCount" [factory]="productionModel.selectedFactory"></totals-display>
 
 </div>

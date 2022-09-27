@@ -56,3 +56,5 @@ export interface IFactory<T extends Material = Material> {
 export type FactoryLookup = {
     readonly [M in Material]: [IFactory<M>, ...IFactory<M>[]];
 };
+
+export type FactoryTotals = Map<IFactory, Partial<Record<Material, number>>>;

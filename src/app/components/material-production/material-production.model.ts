@@ -1,6 +1,6 @@
 import { Injectable } from '@morgan-stanley/needle';
 
-import { IFactory, Material } from '../../contracts';
+import { FactoryTotals, IFactory, Material } from '../../contracts';
 import { getFactories, getRate } from '../../helpers';
 
 @Injectable()
@@ -11,15 +11,13 @@ export class MaterialProductionModelFactory {
 }
 
 export class MaterialProductionModel<T extends Material = Material> {
-    constructor(public readonly material: T, factory: MaterialProductionModelFactory) {
+    constructor(public readonly material: T, private childFactory: MaterialProductionModelFactory) {
         this._materialFactories = getFactories(material);
         this._selectedFactory = this._materialFactories[0];
 
         this.updateProductionRate();
 
-        const input = this._selectedFactory.input ?? {};
-
-        this._children = Object.keys(input).map((component) => factory.create(component as Material));
+        this.updateChildren();
     }
 
     private _requiredRate = 0;
@@ -74,6 +72,7 @@ export class MaterialProductionModel<T extends Material = Material> {
         this._selectedFactory = value;
         this._factoryCount = 1;
 
+        this.updateChildren();
         this.updateRequiredFactoryCount();
     }
 
@@ -89,6 +88,43 @@ export class MaterialProductionModel<T extends Material = Material> {
             this._selectedFactory.duration,
             this._factoryCount
         );
+    }
+
+    public getTotals(): FactoryTotals {
+        const totals = new Map<IFactory, Partial<Record<Material, number>>>();
+
+        this.children.forEach((child) => {
+            this.addTotal(totals, child.selectedFactory, child.material, this.getRequiredComponentRate(child.material));
+
+            this.addChildTotals(totals, child);
+        });
+
+        return totals;
+    }
+
+    private addChildTotals(totals: FactoryTotals, child: MaterialProductionModel) {
+        const childTotals = child.getTotals();
+
+        Array.from(childTotals.keys()).forEach((childFactory) => {
+            const childFactoryTotals = childTotals.get(childFactory) ?? {};
+
+            const childTotalMaterials = Object.keys(childFactoryTotals) as Material[];
+
+            childTotalMaterials.forEach((childMaterial) =>
+                this.addTotal(totals, childFactory, childMaterial, childFactoryTotals[childMaterial] ?? 0)
+            );
+        });
+    }
+
+    private addTotal(totals: FactoryTotals, factory: IFactory, material: Material, rate: number) {
+        let factoryTotals = totals.get(factory);
+
+        if (factoryTotals == null) {
+            factoryTotals = {};
+            totals.set(factory, factoryTotals);
+        }
+
+        factoryTotals[material] = factoryTotals[material] ?? 0 + rate;
     }
 
     private updateProductionRate() {
@@ -109,5 +145,11 @@ export class MaterialProductionModel<T extends Material = Material> {
 
     private calculateRate(factoryCount: number) {
         return getRate(this._selectedFactory.output[this.material] ?? 0, this._selectedFactory.duration, factoryCount);
+    }
+
+    private updateChildren() {
+        const input = this._selectedFactory.input ?? {};
+
+        this._children = Object.keys(input).map((component) => this.childFactory.create(component as Material));
     }
 }

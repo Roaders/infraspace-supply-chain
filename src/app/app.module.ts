@@ -7,6 +7,7 @@ import { MaterialProductionComponent } from './components/material-production/ma
 import { MaterialSelectorComponent } from './components/material-selector/material-selector.component';
 import { SupplyChainComponent } from './components/supply-chain/supply-chain.component';
 import { SupplyChainBrowserComponent } from './components/supply-chain-browser/supply-chain-browser.component';
+import { TotalsDisplayComponent } from './components/totals-display/totals-display.component';
 
 @NgModule({
     declarations: [
@@ -15,6 +16,7 @@ import { SupplyChainBrowserComponent } from './components/supply-chain-browser/s
         SupplyChainComponent,
         SupplyChainBrowserComponent,
         MaterialProductionComponent,
+        TotalsDisplayComponent,
     ],
     imports: [BrowserModule, NgbModule],
     providers: [],
