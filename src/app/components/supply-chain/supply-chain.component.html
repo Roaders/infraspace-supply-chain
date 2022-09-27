@@ -1,6 +1,6 @@
 <div>
     <material-selector (selectedMaterialChange)="onMaterialSelected($event)"></material-selector>
 
-    <material-production *ngIf="selectedMaterial != null" [material]="selectedMaterial"></material-production>
+    <material-production *ngIf="productionModel != null" [model]="productionModel"></material-production>
 
 </div>

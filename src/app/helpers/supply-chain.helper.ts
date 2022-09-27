@@ -5,13 +5,6 @@ export function getFactories<T extends Material>(material: Material): [IFactory<
     return factoryLookup[material] as [IFactory<T>, ...IFactory<T>[]];
 }
 
-export function getRate<T extends Material>(
-    factory: IFactory<T>,
-    material: T,
-    count: number,
-    type: 'output' | 'input' = 'output'
-): number {
-    const materialCost = factory[type]?.[material] ?? 0;
-
-    return (60 / factory.duration) * materialCost * count;
+export function getRate(materialCost: number, duration: number, factoryCount = 1): number {
+    return (60 / duration) * materialCost * factoryCount;
 }

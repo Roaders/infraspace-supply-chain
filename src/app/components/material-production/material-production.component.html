@@ -1,38 +1,38 @@
 <div class="border rounded p-2 m-2">
     <div class="d-flex align-items-center">
 
-        <div>{{productionRate | number: '1.0-2'}} {{material}}/min from</div>
+        <div>{{model.productionRate | number: '1.0-2'}} {{model.material}}/min from</div>
     
         <div class="px-1 d-inline" style="max-width: 5rem;">
-            <input type="number" class="form-control" [value]="factoryCount" min="1" (change)="updateFactoryCount($event)">
+            <input type="number" class="form-control" [value]="model.factoryCount" min="1" (change)="updateFactoryCount($event)">
         </div>
     
-        <div *ngIf="materialFactories.length === 1" class="px-1">{{selectedFactory?.name}}</div>
+        <div *ngIf="model.materialFactories.length === 1" class="px-1">{{model.selectedFactory.name}}</div>
     
-        <div ngbDropdown *ngIf="materialFactories.length > 1" class="px-1">
+        <div ngbDropdown *ngIf="model.materialFactories.length > 1" class="px-1">
             
             <button type="button" class="btn btn-outline-primary" id="selectionDropdown"
-                ngbDropdownToggle>{{selectedFactory?.name}}</button>
+                ngbDropdownToggle>{{model.selectedFactory.name}}</button>
             <div ngbDropdownMenu aria-labelledby="selectionDropdown" class="material-drop-down">
-                <button ngbDropdownItem *ngFor="let factory of materialFactories"
-                    (click)="selectFactory(factory)">{{factory.name}}</button>
+                <button ngbDropdownItem *ngFor="let factory of model.materialFactories"
+                    (click)="model.selectedFactory = factory">{{factory.name}}</button>
             </div>
         </div>
     
     </div>
 
-    <div *ngIf="components.length > 0">
+    <div *ngIf="model.children.length > 0">
         <div>
             Requires:
         </div>
     
         <ul>
-            <li *ngFor="let component of components">
+            <li *ngFor="let component of model.children">
                 <div class="d-flex justify-content-between hover-button">
-                    <span>{{getComponentRate(component) | number: '1.0-2'}} {{component}}/min</span>
-                    <button type="button" class="btn btn-secondary btn-sm" (click)="toggleVisibility(component)">{{getVisibility(component) ? 'Hide' : 'Show'}}</button>
+                    <span>{{model.getRequiredComponentRate(component.material) | number: '1.0-2'}} {{component.material}}/min</span>
+                    <button type="button" class="btn btn-secondary btn-sm" (click)="toggleVisibility(component.material)">{{getVisibility(component.material) ? 'Hide' : 'Show'}}</button>
                 </div>
-                <material-production [ngClass]="{'d-none': !getVisibility(component)}" [material]="component" [requiredRate]="getComponentRate(component)"></material-production>
+                <material-production *ngIf="getVisibility(component.material)" [model]="component" ></material-production>
             </li>
         </ul>
     </div>
