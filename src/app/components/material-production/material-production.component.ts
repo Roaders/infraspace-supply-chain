@@ -6,7 +6,6 @@ import { MaterialProductionModel } from './material-production.model';
 @Component({
     selector: 'material-production',
     templateUrl: './material-production.component.html',
-    styleUrls: ['./material-production.component.scss'],
 })
 export class MaterialProductionComponent {
     private _visibilityLookup: Partial<Record<Material, boolean>> = {};

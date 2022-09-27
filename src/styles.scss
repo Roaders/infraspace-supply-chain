@@ -10,3 +10,16 @@ html, body {
 .collapsible {
     min-height: 0px;
 }
+
+.hover-button:hover{
+    button {
+        visibility: visible;
+    }
+}
+
+.hover-button{
+    cursor: pointer;
+    button {
+        visibility: hidden;
+    }
+}

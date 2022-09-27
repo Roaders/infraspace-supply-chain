@@ -1,35 +1,29 @@
-<div *ngIf="totals != null">
-    <div>Total Required Resources:</div>
+<div  class="p-2" *ngIf="totals != null">
+    <div class="hover-button p-2 rounded bg-primary text-white" (click)="toggleVisibility()">Total Required Resources:</div>
 
-    <div class="d-flex">
-        <div class="px-3">
-            <table>
-                <tr *ngFor="let factory of factories">
-                    <td class="pe-3">{{factory.name}}:</td>
-                    <td>{{getFactoryCount(factory)}}</td>
-                </tr>
-            </table>
-        </div>
+    <div *ngIf="visible" class="list-container">
+        <ul class="d-flex flex-wrap">
+            <li *ngFor="let material of buildMaterials"  class="d-flex list-item justify-content-between p-1">
+                <div>{{material}}:</div>
+                <div>{{getBuildMaterialCost(material) | number: '1.0-1'}}</div>
+            </li>
+            
+            <li class="d-flex list-item justify-content-between p-1">
+                <div>Power:</div>
+                <div>{{totalPower | number: '1.0-1'}}</div>
+            </li>
+            
+            <li class="d-flex list-item justify-content-between p-1">
+                <div>Workers:</div>
+                <div>{{totalWorkers | number: '1.0-1'}}</div>
+            </li>
+        </ul>
 
-        <div class="px-3">
-            <table>
-                <tr *ngFor="let material of buildMaterials">
-                    <td class="pe-3">{{material}}:</td>
-                    <td>{{getBuildMaterialCost(material) | number: '1.0-1'}}</td>
-                </tr>
-                
-                <tr>
-                    <td class="pe-3">Power:</td>
-                    <td>{{totalPower | number: '1.0-1'}}</td>
-                </tr>
-                
-                <tr>
-                    <td class="pe-3">Workers:</td>
-                    <td>{{totalWorkers | number: '1.0-1'}}</td>
-                </tr>
-            </table>
-        </div>
-
+        <ul class="d-flex flex-wrap">
+            <li *ngFor="let factory of factories" class="d-flex list-item justify-content-between p-1">
+                <div>{{factory.name}}:</div>
+                <div>{{getFactoryCount(factory)}}</div>
+            </li>
+        </ul>
     </div>
-
 </div>

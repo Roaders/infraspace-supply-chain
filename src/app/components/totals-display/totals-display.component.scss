@@ -1,0 +1,10 @@
+
+.list-item {
+    flex: 1 0 21%;
+    max-width: 15rem;
+}
+
+.list-container {
+    max-height: 300px;
+    overflow: auto;
+}

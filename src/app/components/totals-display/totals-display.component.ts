@@ -8,6 +8,7 @@ type BuildCosts = Partial<Record<Material, number>>;
 @Component({
     selector: 'totals-display',
     templateUrl: './totals-display.component.html',
+    styleUrls: ['./totals-display.component.scss'],
 })
 export class TotalsDisplayComponent {
     private _factoriesMap: Map<IFactory, number> = new Map();
@@ -66,6 +67,16 @@ export class TotalsDisplayComponent {
 
     public get totalWorkers(): number {
         return this._totalWorkers;
+    }
+
+    private _visible = true;
+
+    public toggleVisibility() {
+        this._visible = !this._visible;
+    }
+
+    public get visible(): boolean {
+        return this._visible;
     }
 
     private generateFactories() {
