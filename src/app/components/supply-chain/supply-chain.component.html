@@ -1,9 +1,0 @@
-<div *ngIf="productionModel != null" class="d-flex flex-column h-100 collapsible">
-
-    <bulk-factory-selector [productionModel]="productionModel"></bulk-factory-selector>
-
-    <material-production class="overflow-auto collapsible" [model]="productionModel"></material-production>
-
-    <totals-display [totals]="productionModel.getTotals()" [count]="productionModel.factoryCount" [factory]="productionModel.selectedFactory"></totals-display>
-
-</div>
