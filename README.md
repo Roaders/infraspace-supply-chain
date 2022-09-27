@@ -1,6 +1,3 @@
 # Infraspace Supply Chain
 
-## TODO:
-
- * Support pipeline inefficiencies
- * support comparison of different supply chains
+A small app to help you plan your infraspace supply chains.
