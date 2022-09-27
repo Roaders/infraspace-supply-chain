@@ -2,7 +2,9 @@
     "name": "infraspace-supply-chain",
     "version": "0.1.0",
     "scripts": {
+        "clean": "rimraf build",
         "start": "ng serve --open",
+        "prebuild": "npm run clean",
         "build": "ng build",
         "watch": "ng build --watch --configuration development",
         "lint": "eslint . --ext .ts,.d.ts,.js",
@@ -48,6 +50,7 @@
         "karma-jasmine": "~5.1.0",
         "karma-jasmine-html-reporter": "~2.0.0",
         "prettier": "^2.6.1",
+        "rimraf": "^3.0.2",
         "typescript": "~4.7.2"
     }
 }
