@@ -135,7 +135,9 @@ export class MaterialProductionModel<T extends Material = Material> {
             totals.set(factory, factoryTotals);
         }
 
-        factoryTotals[material] = factoryTotals[material] ?? 0 + rate;
+        const existingRate = factoryTotals[material] ?? 0;
+
+        factoryTotals[material] = existingRate + rate;
     }
 
     private updateProductionRate() {
