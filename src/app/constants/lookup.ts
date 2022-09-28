@@ -86,7 +86,7 @@ export const factoryLookup: FactoryLookup = {
     'Red Science Pack': [RedSciencePackFactory],
 
     Water: [GroundWaterExtractor, WaterAirFilter],
-    Methane: [MethaneFermentationPlant, MethaneDrill],
+    Methane: [MethaneDrill, MethaneFermentationPlant],
 
     Oxygen: [OxygenProcessor, AtmosphereProcessor],
     Carbon: [CarbonProcessor, AtmosphereProcessor],
