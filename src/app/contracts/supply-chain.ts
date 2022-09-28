@@ -14,7 +14,6 @@ export const Materials = [
     'Carbon',
     'Steel',
     'Uranium',
-    'Adamantine',
     'Iridium Propellant',
     'Microchip',
     'Neural Processor',

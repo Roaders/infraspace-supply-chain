@@ -22,7 +22,6 @@ import {
     VREdutainmentFactory,
 } from './finished-goods-factories';
 import {
-    ColossalAdamantineDrill,
     LargeAluminumMine,
     LargeCopperMine,
     LargeIridiumMine,
@@ -58,7 +57,6 @@ export const factoryLookup: FactoryLookup = {
     Aluminum: [LargeAluminumMine, AluminumMine],
     Uranium: [LargeUraniumMine, UraniumMine],
     Iridium: [LargeIridiumMine, IridiumMine],
-    Adamantine: [ColossalAdamantineDrill],
 
     Electronics: [ElectronicsFactory],
     Microchip: [MicrochipFactory],

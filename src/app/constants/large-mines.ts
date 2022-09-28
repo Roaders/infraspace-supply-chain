@@ -62,4 +62,3 @@ export const LargeIridiumMine: IFactory<'Iridium'> = {
     output: { Iridium: 1 },
     duration: 5.4,
 };
-

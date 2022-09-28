@@ -71,6 +71,6 @@ export const MealFactory: IFactory<'Good Meal'> = {
     duration: 6,
     power: 2,
     workers: 4,
-    input: {Vegetables: 1, Meat: 1},
+    input: { Vegetables: 1, Meat: 1 },
     output: { 'Good Meal': 2 },
 };
