@@ -15,7 +15,7 @@ export const SteelMill: IFactory<'Steel'> = {
     buildCost: { Concrete: 15 },
     power: 3,
     workers: 3,
-    input: { Iron: 1, Carbon: 1 },
+    input: { Iron: 1, Carbon: 1, Water: 1 },
     output: { Steel: 2 },
     duration: 16,
 };
