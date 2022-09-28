@@ -65,7 +65,7 @@ export const HighTechWorkshop: IFactory<'High Tech Tools'> = {
     buildCost: { Concrete: 100, Steel: 180 },
     power: 4,
     workers: 4,
-    input: { 'Iridium Alloy': 1, 'Neural Processor': 1, Aluminum: 4 },
+    input: { 'Iridium Alloy': 1, 'Neural Processor': 1, Aluminum: 4, Methane: 6 },
     output: { 'High Tech Tools': 4 },
     duration: 40,
 };
@@ -77,7 +77,7 @@ export const VREdutainmentFactory: IFactory<'VR-Edutainment'> = {
     workers: 4,
     input: { Microchip: 1, 'Neural Processor': 1, 'Holo-Display': 1 },
     output: { 'VR-Edutainment': 5 },
-    duration: 32,
+    duration: 20,
 };
 
 export const IridiumPropellantFactory: IFactory<'Iridium Propellant'> = {

@@ -47,7 +47,7 @@ export const LargeAluminumMine: IFactory<'Aluminum'> = {
 
 export const LargeUraniumMine: IFactory<'Uranium'> = {
     name: 'Large Uranium Mine',
-    buildCost: { Concrete: 320 },
+    buildCost: { Concrete: 320, Steel: 64 },
     duration: 20,
     power: 12,
     workers: 14,
@@ -56,19 +56,10 @@ export const LargeUraniumMine: IFactory<'Uranium'> = {
 
 export const LargeIridiumMine: IFactory<'Iridium'> = {
     name: 'Large Iridium Mine',
-    buildCost: { Concrete: 200 },
+    buildCost: { Concrete: 200, Steel: 105 },
     power: 15,
     workers: 7,
     output: { Iridium: 1 },
     duration: 5.4,
 };
 
-export const ColossalAdamantineDrill: IFactory<'Adamantine'> = {
-    name: 'Colossal Adamantine Drill',
-    buildCost: { Concrete: 10000, Steel: 3200 },
-    power: 60,
-    workers: 70,
-    input: { 'Red Science Pack': 3, 'Iridium Propellant': 5 },
-    output: { Adamantine: 1 },
-    duration: 24,
-};

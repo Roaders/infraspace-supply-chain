@@ -47,7 +47,7 @@ export const AluminumMine: IFactory<'Aluminum'> = {
 
 export const UraniumMine: IFactory<'Uranium'> = {
     name: 'Uranium Mine',
-    buildCost: { Concrete: 60 },
+    buildCost: { Concrete: 60, Steel: 16 },
     duration: 40,
     power: 6,
     workers: 8,

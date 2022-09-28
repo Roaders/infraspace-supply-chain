@@ -15,7 +15,7 @@ export const MicrochipFactory: IFactory<'Microchip'> = {
     buildCost: { Concrete: 45 },
     power: 2,
     workers: 4,
-    input: { Sand: 1, Electronics: 1 },
+    input: { Sand: 1, Electronics: 2 },
     output: { Microchip: 1 },
     duration: 60,
 };
@@ -32,7 +32,7 @@ export const NeuralProcessorFactory: IFactory<'Neural Processor'> = {
 
 export const MotorFactory: IFactory<'Motor'> = {
     name: 'Motor Factory',
-    buildCost: { Concrete: 20 },
+    buildCost: { Concrete: 20, Steel: 30 },
     power: 2,
     workers: 4,
     input: { Steel: 2, Copper: 1 },
@@ -42,7 +42,7 @@ export const MotorFactory: IFactory<'Motor'> = {
 
 export const NanotubesFactory: IFactory<'Nanotubes'> = {
     name: 'Nanotubes Factory',
-    buildCost: { Concrete: 50 },
+    buildCost: { Concrete: 50, Steel: 200 },
     power: 4,
     workers: 4,
     input: { Carbon: 5, Sand: 2, Water: 2 },
