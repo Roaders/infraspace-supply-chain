@@ -1,38 +1,42 @@
-<div class="border rounded p-2 m-2">
-    <div class="d-flex align-items-center">
+<div class="border rounded m-1">
 
-        <div>{{model.productionRate | number: '1.0-2'}} {{model.material}}/min from</div>
-    
-        <div *ngIf="model.topLevel" class="px-1 d-inline" style="max-width: 5rem;">
-            <input type="number" class="form-control" [value]="model.factoryCount" min="1" (change)="updateFactoryCount($event)">
-        </div>
+    <h4 class="rounded-top bg-primary text-white p-2">{{model.material}}</h4>
 
-        <div class="px-1" *ngIf="!model.topLevel">{{model.factoryCount}}</div>
-    
-        <div *ngIf="model.materialFactories.length === 1" class="px-1">{{model.selectedFactory.name}}</div>
-    
-        <div ngbDropdown *ngIf="model.materialFactories.length > 1" class="px-1">
-            
-            <button type="button" class="btn btn-outline-primary" id="selectionDropdown"
-                ngbDropdownToggle>{{model.selectedFactory.name}}</button>
-            <div ngbDropdownMenu aria-labelledby="selectionDropdown" class="material-drop-down">
-                <button ngbDropdownItem *ngFor="let factory of model.materialFactories"
-                    (click)="model.selectedFactory = factory">{{factory.name}}</button>
+    <div class="p-2">
+        <div class="d-flex align-items-center">
+
+            <div>{{model.productionRate | number: '1.0-2'}}/min from</div>
+        
+            <div *ngIf="model.topLevel" class="px-1 d-inline" style="max-width: 5rem;">
+                <input type="number" class="form-control" [value]="model.factoryCount" min="1" (change)="updateFactoryCount($event)">
             </div>
+    
+            <div class="px-1" *ngIf="!model.topLevel">{{model.factoryCount}}</div>
+        
+            <div *ngIf="model.materialFactories.length === 1" class="px-1">{{model.selectedFactory.name}}</div>
+        
+            <div ngbDropdown *ngIf="model.materialFactories.length > 1" class="px-1">
+                
+                <button type="button" class="btn btn-outline-primary" id="selectionDropdown"
+                    ngbDropdownToggle>{{model.selectedFactory.name}}</button>
+                <div ngbDropdownMenu aria-labelledby="selectionDropdown" class="material-drop-down">
+                    <button ngbDropdownItem *ngFor="let factory of model.materialFactories"
+                        (click)="model.selectedFactory = factory">{{factory.name}}</button>
+                </div>
+            </div>
+        
         </div>
     
+        <div class="pt-2" *ngIf="model.children.length > 0">
+        
+            <ul>
+                <li class="p-1" *ngFor="let component of model.children">
+                    <div class="d-flex justify-content-between hover-button p-1 rounded bg-secondary text-white" (click)="toggleVisibility(component.material)">
+                        <span>{{model.getRequiredComponentRate(component.material) | number: '1.0-2'}} {{component.material}}/min</span>
+                    </div>
+                    <material-production *ngIf="getVisibility(component.material)" [model]="component" ></material-production>
+                </li>
+            </ul>
+        </div>
     </div>
-
-    <div class="pt-2" *ngIf="model.children.length > 0">
-    
-        <ul>
-            <li class="p-1" *ngFor="let component of model.children">
-                <div class="d-flex justify-content-between hover-button p-2 rounded bg-primary text-white" (click)="toggleVisibility(component.material)">
-                    <span>{{model.getRequiredComponentRate(component.material) | number: '1.0-2'}} {{component.material}}/min</span>
-                </div>
-                <material-production *ngIf="getVisibility(component.material)" [model]="component" ></material-production>
-            </li>
-        </ul>
-    </div>
-
 </div>
