@@ -1,3 +1,6 @@
+@import 'node_modules/bootstrap/scss/mixins';
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
 
 .list-item {
     flex: 1 0 21%;
@@ -7,4 +10,22 @@
 .list-container {
     max-height: 300px;
     overflow: auto;
+}
+
+@include media-breakpoint-down(xxl) {
+    .list-item  {
+        flex: 1 0 30%;
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    .list-item  {
+        flex: 1 0 40%;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .list-item  {
+        flex: 1 0 90%;
+    }
 }
