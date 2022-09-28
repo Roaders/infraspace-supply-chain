@@ -1,11 +1,19 @@
 <div>
 
-    <div ngbDropdown>
+    <div ngbDropdown (openChange)="onOpenChange()">
         <button type="button" class="btn btn-outline-primary" id="selectionDropdown"
             ngbDropdownToggle>{{buttonText}}</button>
         <div ngbDropdownMenu aria-labelledby="selectionDropdown" class="material-drop-down">
-            <button ngbDropdownItem *ngFor="let material of materials"
-                (click)="selectMaterial(material)">{{material}}</button>
+
+            <div *ngIf="materials.length > 5" class="m-2">
+                <input type="text" class="form-control" [(ngModel)]="filterText" placeholder="Search...">
+            </div>
+
+            <div>
+                <button ngbDropdownItem *ngFor="let material of filteredMaterials"
+                    (click)="selectMaterial(material)">{{material}}</button>
+            </div>
+
         </div>
     </div>
 

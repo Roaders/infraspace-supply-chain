@@ -14,8 +14,24 @@ export class MaterialSelectorComponent {
         return this._materials;
     }
 
+    public get filteredMaterials(): ReadonlyArray<Material> {
+        return this._materials.filter(
+            (item) => this._filterText == null || item.toLowerCase().indexOf(this._filterText.toLowerCase()) >= 0
+        );
+    }
+
     public get buttonText(): string {
         return this._selectedMaterial != null ? this._selectedMaterial : 'Select Material...';
+    }
+
+    private _filterText: string | undefined;
+
+    public get filterText(): string | undefined {
+        return this._filterText;
+    }
+
+    public set filterText(value: string | undefined) {
+        this._filterText = value;
     }
 
     @Output()
@@ -29,7 +45,12 @@ export class MaterialSelectorComponent {
 
     public selectMaterial(material: Material): void {
         this._selectedMaterial = material;
+        this._filterText = undefined;
 
         this.selectedMaterialChange.next(material);
+    }
+
+    public onOpenChange() {
+        this._filterText = undefined;
     }
 }

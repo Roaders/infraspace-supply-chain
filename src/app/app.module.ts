@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -21,7 +22,7 @@ import { TotalsDisplayComponent } from './components/totals-display/totals-displ
         TotalsDisplayComponent,
         BulkFactorySelectorComponent,
     ],
-    imports: [BrowserModule, NgbModule],
+    imports: [BrowserModule, NgbModule, FormsModule],
     providers: [],
     bootstrap: [AppComponent],
 })
