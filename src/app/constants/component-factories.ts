@@ -45,7 +45,7 @@ export const NanotubesFactory: IFactory<'Nanotubes'> = {
     buildCost: { Concrete: 50 },
     power: 4,
     workers: 4,
-    input: { Carbon: 5, Sand: 2 },
+    input: { Carbon: 5, Sand: 2, Water: 2 },
     output: { Nanotubes: 2 },
     duration: 50,
 };
