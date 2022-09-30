@@ -2,6 +2,7 @@
 
 @import "bootstrap/scss/bootstrap";
 
+@import "assets/material-icons";
 
 html, body {
     height: 100%;
@@ -22,4 +23,16 @@ html, body {
     button {
         visibility: hidden;
     }
+}
+
+.material-icon {
+    width: 20px;
+    height: 20px;
+    margin: 0.25rem;
+}
+
+.material-icon-lrg {
+    width: 30px;
+    height: 30px;
+    margin: 0.25rem;
 }

@@ -8,8 +8,6 @@ import { MaterialProductionModel } from './material-production.model';
     templateUrl: './material-production.component.html',
 })
 export class MaterialProductionComponent {
-    private _visibilityLookup: Partial<Record<Material, boolean>> = {};
-
     private _model!: MaterialProductionModel;
 
     @Input()
@@ -23,11 +21,11 @@ export class MaterialProductionComponent {
     }
 
     @Input()
-    public get requiredRate(): number {
+    public get requiredRate(): number | undefined {
         return this.model.requiredRate;
     }
 
-    public set requiredRate(value: number) {
+    public set requiredRate(value: number | undefined) {
         this.model.requiredRate = value;
     }
 
@@ -36,15 +34,17 @@ export class MaterialProductionComponent {
         this.model.factoryCount = parseInt(targetValue);
     }
 
-    public getVisibility(component: Material): boolean {
-        return this._visibilityLookup[component] ?? true;
+    private _visible = true;
+
+    public get visible(): boolean {
+        return this._visible;
     }
 
-    public toggleVisibility(component: Material): void {
-        this._visibilityLookup[component] = !this.getVisibility(component);
+    public toggleVisibility(): void {
+        this._visible = !this._visible;
     }
 
     private reset() {
-        this._visibilityLookup = {};
+        this._visible = true;
     }
 }

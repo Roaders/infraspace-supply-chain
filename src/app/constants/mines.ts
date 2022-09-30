@@ -9,13 +9,13 @@ export const SandMine: IFactory<'Sand'> = {
     output: { Sand: 1 },
 };
 
-export const SulphurMine: IFactory<'Sulphur'> = {
+export const SulfurMine: IFactory<'Sulfur'> = {
     name: 'Sulfur Mine',
     buildCost: { Concrete: 10 },
     duration: 2.4,
     power: 0.8,
     workers: 3,
-    output: { Sulphur: 1 },
+    output: { Sulfur: 1 },
 };
 
 export const IronMine: IFactory<'Iron'> = {

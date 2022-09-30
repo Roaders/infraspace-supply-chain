@@ -23,13 +23,13 @@ export class MaterialProductionModel<T extends Material = Material> {
         this.updateProductionRate();
     }
 
-    private _requiredRate = 0;
+    private _requiredRate: number | undefined;
 
-    public get requiredRate(): number {
+    public get requiredRate(): number | undefined {
         return this._requiredRate;
     }
 
-    public set requiredRate(value: number) {
+    public set requiredRate(value: number | undefined) {
         if (this._requiredRate === value) {
             return;
         }
@@ -147,7 +147,7 @@ export class MaterialProductionModel<T extends Material = Material> {
     }
 
     private updateRequiredFactoryCount() {
-        if (this._requiredRate !== 0) {
+        if (this._requiredRate != null) {
             const ratePerSingleFactory = this.calculateRate(1);
 
             this._factoryCount = Math.ceil(this._requiredRate / ratePerSingleFactory);

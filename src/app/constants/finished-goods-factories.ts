@@ -5,7 +5,7 @@ export const ConcreteFactory: IFactory<'Concrete'> = {
     buildCost: { Concrete: 8 },
     power: 1,
     workers: 3,
-    input: { Sulphur: 2, Sand: 1 },
+    input: { Sulfur: 2, Sand: 1 },
     output: { Concrete: 4 },
     duration: 9.6,
 };
@@ -85,7 +85,7 @@ export const IridiumPropellantFactory: IFactory<'Iridium Propellant'> = {
     buildCost: { Concrete: 200, Steel: 300 },
     power: 5,
     workers: 4,
-    input: { Iridium: 10, Sulphur: 10 },
+    input: { Iridium: 10, Sulfur: 10 },
     output: { 'Iridium Propellant': 1 },
     duration: 26,
 };

@@ -1,8 +1,12 @@
-<div class="border rounded m-1">
+<div class="m-1" [ngClass]="{'border': visible, 'rounded': visible}">
 
-    <h4 class="rounded-top bg-primary text-white p-2">{{model.material}}</h4>
+    <h4 class="rounded-top bg-primary text-white p-2 hover-button d-flex align-items-center" [ngClass]="{'rounded-bottom': !visible}" (click)="toggleVisibility()">
+        <i class="material-icon-lrg" [ngClass]="model.material | iconClass"></i>
+        <span>{{model.material}}</span>
+        <span class="small px-1" *ngIf="requiredRate != null">(required: {{requiredRate| number: '1.0-2'}}/min)</span>
+    </h4>
 
-    <div class="p-2">
+    <div *ngIf="visible" class="p-2">
         <div class="d-flex align-items-center">
 
             <div>{{model.productionRate | number: '1.0-2'}}/min from</div>
@@ -27,16 +31,10 @@
         
         </div>
     
-        <div class="pt-2" *ngIf="model.children.length > 0">
+        <div class="ps-2" *ngIf="model.children.length > 0">
         
-            <ul>
-                <li class="p-1" *ngFor="let component of model.children">
-                    <div class="d-flex justify-content-between hover-button p-1 rounded bg-secondary text-white" (click)="toggleVisibility(component.material)">
-                        <span>{{model.getRequiredComponentRate(component.material) | number: '1.0-2'}} {{component.material}}/min</span>
-                    </div>
-                    <material-production *ngIf="getVisibility(component.material)" [model]="component" ></material-production>
-                </li>
-            </ul>
+            <material-production *ngFor="let component of model.children" [model]="component" ></material-production>
+     
         </div>
     </div>
 </div>
