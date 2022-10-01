@@ -1,6 +1,6 @@
 {
     "name": "infraspace-supply-chain",
-    "version": "0.5.3",
+    "version": "1.0.0",
     "scripts": {
         "clean": "rimraf build",
         "start": "ng serve --open",
