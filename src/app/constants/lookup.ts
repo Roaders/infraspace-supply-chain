@@ -27,7 +27,7 @@ import {
     LargeIridiumMine,
     LargeIronMine,
     LargeSandMine,
-    LargeSulphurMine,
+    LargeSulfurMine,
     LargeUraniumMine,
 } from './large-mines';
 import {
@@ -41,7 +41,7 @@ import {
     VegetableFarm,
 } from './life-support';
 import { GroundWaterExtractor, MethaneDrill, MethaneFermentationPlant, WaterAirFilter } from './liquids';
-import { AluminumMine, CopperMine, IridiumMine, IronMine, SandMine, SulphurMine, UraniumMine } from './mines';
+import { AluminumMine, CopperMine, IridiumMine, IronMine, SandMine, SulfurMine, UraniumMine } from './mines';
 import {
     BlueSciencePackFactory,
     GreenSciencePackFactory,
@@ -51,7 +51,7 @@ import {
 
 export const factoryLookup: FactoryLookup = {
     Sand: [LargeSandMine, SandMine],
-    Sulphur: [LargeSulphurMine, SulphurMine],
+    Sulfur: [LargeSulfurMine, SulfurMine],
     Iron: [LargeIronMine, IronMine],
     Copper: [LargeCopperMine, CopperMine],
     Aluminum: [LargeAluminumMine, AluminumMine],

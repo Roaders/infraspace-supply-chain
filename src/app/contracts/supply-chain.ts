@@ -1,6 +1,6 @@
 export const Materials = [
     'Sand',
-    'Sulphur',
+    'Sulfur',
     'Iron',
     'Copper',
     'Aluminum',

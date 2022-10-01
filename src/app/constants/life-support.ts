@@ -42,7 +42,7 @@ export const FertilizerFactory: IFactory<'Fertilizer'> = {
     duration: 10,
     power: 2,
     workers: 4,
-    input: { Sulphur: 1 },
+    input: { Sulfur: 1 },
     output: { Fertilizer: 1 },
 };
 

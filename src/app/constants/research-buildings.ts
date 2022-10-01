@@ -16,7 +16,7 @@ export const GreenSciencePackFactory: IFactory<'Green Science Pack'> = {
     buildCost: { Concrete: 20, Steel: 35 },
     power: 3,
     workers: 7,
-    input: { Electronics: 4, Sulphur: 4, 'Blue Science Pack': 3 },
+    input: { Electronics: 4, Sulfur: 4, 'Blue Science Pack': 3 },
     duration: 60,
 };
 

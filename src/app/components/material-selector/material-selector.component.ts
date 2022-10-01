@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
 import { Material, Materials } from '../../contracts';
+import { mapMaterialToIcon } from '../../helpers';
 
 @Component({
     selector: 'material-selector',

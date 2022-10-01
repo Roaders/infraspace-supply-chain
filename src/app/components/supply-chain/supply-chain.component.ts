@@ -23,7 +23,7 @@ export class SupplyChainComponent {
     public set material(value: Material | undefined) {
         this._material = value;
 
-        this._productionModel = value != null ? this.productionFactory.create(value, true) : undefined;
+        this._productionModel = value != null ? this.productionFactory.create(value) : undefined;
     }
 
     private _productionModel: MaterialProductionModel<Material> | undefined;

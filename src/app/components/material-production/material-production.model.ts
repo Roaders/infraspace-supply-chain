@@ -5,8 +5,8 @@ import { getFactories, getRate } from '../../helpers';
 
 @Injectable()
 export class MaterialProductionModelFactory {
-    public create<T extends Material>(material: T, topLevel = false): MaterialProductionModel<T> {
-        return new MaterialProductionModel<T>(material, this, topLevel);
+    public create<T extends Material>(material: T, depth = 0): MaterialProductionModel<T> {
+        return new MaterialProductionModel<T>(material, this, depth);
     }
 }
 
@@ -14,7 +14,7 @@ export class MaterialProductionModel<T extends Material = Material> {
     constructor(
         public readonly material: T,
         private childFactory: MaterialProductionModelFactory,
-        public readonly topLevel: boolean
+        public readonly depth = 0
     ) {
         this._materialFactories = getFactories(material);
         this._selectedFactory = this._materialFactories[0];
@@ -23,13 +23,13 @@ export class MaterialProductionModel<T extends Material = Material> {
         this.updateProductionRate();
     }
 
-    private _requiredRate = 0;
+    private _requiredRate: number | undefined;
 
-    public get requiredRate(): number {
+    public get requiredRate(): number | undefined {
         return this._requiredRate;
     }
 
-    public set requiredRate(value: number) {
+    public set requiredRate(value: number | undefined) {
         if (this._requiredRate === value) {
             return;
         }
@@ -147,7 +147,7 @@ export class MaterialProductionModel<T extends Material = Material> {
     }
 
     private updateRequiredFactoryCount() {
-        if (this._requiredRate !== 0) {
+        if (this._requiredRate != null) {
             const ratePerSingleFactory = this.calculateRate(1);
 
             this._factoryCount = Math.ceil(this._requiredRate / ratePerSingleFactory);
@@ -163,6 +163,8 @@ export class MaterialProductionModel<T extends Material = Material> {
     private updateChildren() {
         const input = this._selectedFactory.input ?? {};
 
-        this._children = Object.keys(input).map((component) => this.childFactory.create(component as Material));
+        this._children = Object.keys(input).map((component) =>
+            this.childFactory.create(component as Material, this.depth + 1)
+        );
     }
 }
