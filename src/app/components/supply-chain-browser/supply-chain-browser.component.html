@@ -6,11 +6,6 @@
     <div *ngIf="material != null" class="row flex-grow-1 collapsible">
 
         <supply-chain class="col-sm h-100 collapsible" [material]="material"></supply-chain>
-        <supply-chain *ngIf="showComparison" class="col-sm h-100 collapsible" [material]="material"></supply-chain>
-
-        <div *ngIf="!showComparison" class="col-2 d-flex justify-content-center align-items-center">
-            <button type="button" class="btn btn-secondary" (click)="showComparison = true">Add Comparison</button>
-        </div>
 
     </div>
 

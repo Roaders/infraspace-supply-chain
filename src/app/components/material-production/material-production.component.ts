@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 
-import { Material } from '../../contracts';
 import { MaterialProductionModel } from './material-production.model';
 
 @Component({
@@ -42,6 +41,33 @@ export class MaterialProductionComponent {
 
     public toggleVisibility(): void {
         this._visible = !this._visible;
+    }
+
+    public get headerClasses(): string[] {
+        const classes = [this.backgroundClass];
+        if (!this.visible) {
+            classes.push('rounded-bottom');
+        }
+
+        return classes;
+    }
+
+    public get backgroundClass(): string {
+        switch (this.model.depth) {
+            case 0:
+                return 'banner-one';
+            case 1:
+                return 'banner-two';
+            case 2:
+                return 'banner-three';
+            case 3:
+                return 'banner-four';
+            case 4:
+                return 'banner-five';
+
+            default:
+                return 'banner-six';
+        }
     }
 
     private reset() {

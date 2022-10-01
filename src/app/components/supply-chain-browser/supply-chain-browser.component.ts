@@ -13,8 +13,6 @@ export class SupplyChainBrowserComponent {
         return this._material;
     }
 
-    public showComparison = false;
-
     public onMaterialSelected(material?: Material) {
         this._material = material;
     }

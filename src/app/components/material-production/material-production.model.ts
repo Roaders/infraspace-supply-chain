@@ -5,8 +5,8 @@ import { getFactories, getRate } from '../../helpers';
 
 @Injectable()
 export class MaterialProductionModelFactory {
-    public create<T extends Material>(material: T, topLevel = false): MaterialProductionModel<T> {
-        return new MaterialProductionModel<T>(material, this, topLevel);
+    public create<T extends Material>(material: T, depth = 0): MaterialProductionModel<T> {
+        return new MaterialProductionModel<T>(material, this, depth);
     }
 }
 
@@ -14,7 +14,7 @@ export class MaterialProductionModel<T extends Material = Material> {
     constructor(
         public readonly material: T,
         private childFactory: MaterialProductionModelFactory,
-        public readonly topLevel: boolean
+        public readonly depth = 0
     ) {
         this._materialFactories = getFactories(material);
         this._selectedFactory = this._materialFactories[0];
@@ -163,6 +163,8 @@ export class MaterialProductionModel<T extends Material = Material> {
     private updateChildren() {
         const input = this._selectedFactory.input ?? {};
 
-        this._children = Object.keys(input).map((component) => this.childFactory.create(component as Material));
+        this._children = Object.keys(input).map((component) =>
+            this.childFactory.create(component as Material, this.depth + 1)
+        );
     }
 }
