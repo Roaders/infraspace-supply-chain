@@ -141,5 +141,9 @@ export function mapMaterialToIcon(material: Material): Icon {
             return 'sciencePack3';
         case 'Red Science Pack':
             return 'sciencePack4';
+        case 'Population':
+            return 'citizenMovingIn';
+        case 'Power':
+            return 'power';
     }
 }

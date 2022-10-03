@@ -22,6 +22,14 @@ import {
     VREdutainmentFactory,
 } from './finished-goods-factories';
 import {
+    BasicHabitat,
+    DecentHabitat,
+    LuxuryResidentialHighrise,
+    NiceHabitat,
+    ResidentialBuilding,
+    ResidentialHighrise,
+} from './habitats';
+import {
     LargeAluminumMine,
     LargeCopperMine,
     LargeIridiumMine,
@@ -42,6 +50,13 @@ import {
 } from './life-support';
 import { GroundWaterExtractor, MethaneDrill, MethaneFermentationPlant, WaterAirFilter } from './liquids';
 import { AluminumMine, CopperMine, IridiumMine, IronMine, SandMine, SulfurMine, UraniumMine } from './mines';
+import {
+    FastNeutronReactor,
+    MethanePowerPlant,
+    NuclearPowerPlant,
+    SolarPowerPlant,
+    WindTurbine,
+} from './power-stations';
 import {
     BlueSciencePackFactory,
     GreenSciencePackFactory,
@@ -94,4 +109,15 @@ export const factoryLookup: FactoryLookup = {
     Meat: [MeatLab],
     'Good Meal': [MealFactory],
     'Organic Waste': [MeatLab, VegetableFarm],
+
+    Population: [
+        LuxuryResidentialHighrise,
+        ResidentialHighrise,
+        ResidentialBuilding,
+        NiceHabitat,
+        DecentHabitat,
+        BasicHabitat,
+    ],
+
+    Power: [FastNeutronReactor, NuclearPowerPlant, MethanePowerPlant, SolarPowerPlant, WindTurbine],
 };

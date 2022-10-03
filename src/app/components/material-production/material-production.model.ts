@@ -95,6 +95,7 @@ export class MaterialProductionModel<T extends Material = Material> {
 
     public getRequiredComponentRate(component: Material): number {
         return getRate(
+            component,
             this._selectedFactory.input?.[component] ?? 0,
             this._selectedFactory.duration,
             this._factoryCount
@@ -157,14 +158,19 @@ export class MaterialProductionModel<T extends Material = Material> {
     }
 
     private calculateRate(factoryCount: number) {
-        return getRate(this._selectedFactory.output[this.material] ?? 0, this._selectedFactory.duration, factoryCount);
+        return getRate(
+            this.material,
+            this._selectedFactory.output[this.material] ?? 0,
+            this._selectedFactory.duration,
+            factoryCount
+        );
     }
 
     private updateChildren() {
         const input = this._selectedFactory.input ?? {};
 
-        this._children = Object.keys(input).map((component) =>
-            this.childFactory.create(component as Material, this.depth + 1)
-        );
+        this._children = Object.keys(input)
+            .filter((material) => material != 'Power')
+            .map((component) => this.childFactory.create(component as Material, this.depth + 1));
     }
 }
