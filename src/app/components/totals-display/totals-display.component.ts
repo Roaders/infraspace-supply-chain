@@ -112,7 +112,7 @@ export class TotalsDisplayComponent {
         this._totalWorkers = 0;
 
         this._buildCosts = Array.from(this._factoriesMap.entries()).reduce<BuildCosts>((costs, [factory, count]) => {
-            this._totalPower += factory.power * count;
+            this._totalPower += factory.input?.Power ?? 0 * count;
             this._totalWorkers += factory.workers * count;
 
             return addBuildCosts(costs, factory, count);
@@ -133,7 +133,7 @@ function addBuildCosts(costs: BuildCosts, factory: IFactory, count: number): Bui
 }
 
 function getRequiredFactoryCount(factory: IFactory, material: Material, requiredRate: number) {
-    const productionRate = getRate(factory.output[material] ?? 0, factory.duration, 1);
+    const productionRate = getRate(material, factory.output[material] ?? 0, factory.duration, 1);
 
     return Math.ceil(requiredRate / productionRate);
 }

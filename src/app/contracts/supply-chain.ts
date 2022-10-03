@@ -39,6 +39,7 @@ export const Materials = [
     'Yellow Science Pack',
     'Red Science Pack',
     'Population',
+    'Power',
 ] as const;
 
 export type Material = typeof Materials[number];
@@ -48,7 +49,6 @@ export interface IFactory<T extends Material = Material> {
     duration: number;
     output: Record<T, number>;
     input?: Partial<Record<Material, number>>;
-    power: number;
     workers: number;
     buildCost: Partial<Record<Material, number>>;
 }

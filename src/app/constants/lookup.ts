@@ -51,6 +51,13 @@ import {
 import { GroundWaterExtractor, MethaneDrill, MethaneFermentationPlant, WaterAirFilter } from './liquids';
 import { AluminumMine, CopperMine, IridiumMine, IronMine, SandMine, SulfurMine, UraniumMine } from './mines';
 import {
+    FastNeutronReactor,
+    MethanePowerPlant,
+    NuclearPowerPlant,
+    SolarPowerPlant,
+    WindTurbine,
+} from './power-stations';
+import {
     BlueSciencePackFactory,
     GreenSciencePackFactory,
     RedSciencePackFactory,
@@ -111,4 +118,6 @@ export const factoryLookup: FactoryLookup = {
         DecentHabitat,
         BasicHabitat,
     ],
+
+    Power: [FastNeutronReactor, NuclearPowerPlant, MethanePowerPlant, SolarPowerPlant, WindTurbine],
 };

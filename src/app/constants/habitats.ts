@@ -3,7 +3,6 @@ import { IFactory } from '../contracts';
 export const BasicHabitat: IFactory<'Population'> = {
     name: 'Basic Habitat',
     buildCost: { Concrete: 10 },
-    power: 0,
     workers: 0,
     output: { Population: 8 },
     input: { Oxygen: 0.5 },
@@ -13,7 +12,6 @@ export const BasicHabitat: IFactory<'Population'> = {
 export const DecentHabitat: IFactory<'Population'> = {
     name: 'Decent Habitat',
     buildCost: { Concrete: 10 },
-    power: 0,
     workers: 0,
     output: { Population: 10 },
     input: { Oxygen: 0.6, Water: 0.4, 'Survival Food': 0.6 },
@@ -23,7 +21,6 @@ export const DecentHabitat: IFactory<'Population'> = {
 export const NiceHabitat: IFactory<'Population'> = {
     name: 'Nice Habitat',
     buildCost: { Concrete: 10 },
-    power: 0,
     workers: 0,
     output: { Population: 12 },
     input: { Oxygen: 0.7, Water: 0.4, 'Survival Food': 0.7, 'Home Appliances': 0.6 },
@@ -33,7 +30,6 @@ export const NiceHabitat: IFactory<'Population'> = {
 export const ResidentialBuilding: IFactory<'Population'> = {
     name: 'Residential Building',
     buildCost: { Concrete: 10 },
-    power: 0,
     workers: 0,
     output: { Population: 14 },
     input: { Oxygen: 0.8, Water: 0.5, 'Survival Food': 0.8, 'Home Appliances': 0.3, Computer: 0.3 },
@@ -43,7 +39,6 @@ export const ResidentialBuilding: IFactory<'Population'> = {
 export const ResidentialHighrise: IFactory<'Population'> = {
     name: 'Residential Highrise',
     buildCost: { Concrete: 10 },
-    power: 0,
     workers: 0,
     output: { Population: 16 },
     input: {
@@ -61,7 +56,6 @@ export const ResidentialHighrise: IFactory<'Population'> = {
 export const LuxuryResidentialHighrise: IFactory<'Population'> = {
     name: 'Luxury Residential Highrise',
     buildCost: { Concrete: 10 },
-    power: 0,
     workers: 0,
     output: { Population: 18 },
     input: {

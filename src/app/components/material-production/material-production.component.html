@@ -11,7 +11,7 @@
     <div *ngIf="visible" class="p-2">
         <div class="d-flex align-items-center">
 
-            <div class="px-1">{{model.productionRate | number: '1.0-2'}}/min from</div>
+            <div class="px-1">{{model.productionRate | number: '1.0-2'}}{{materialRate}} from</div>
         
             <div *ngIf="model.depth === 0" class="px-1 d-inline" style="max-width: 5rem;">
                 <input type="number" class="form-control" [value]="model.factoryCount" min="1" (change)="updateFactoryCount($event)">
@@ -31,7 +31,7 @@
                 </div>
             </div>
 
-            <span class="px-1" *ngIf="requiredRate != null">(required: {{requiredRate| number: '1.0-2'}}/min)</span>
+            <span class="px-1" *ngIf="requiredRate != null">(required: {{requiredRate| number: '1.0-2'}}{{materialRate}})</span>
         
         </div>
     
