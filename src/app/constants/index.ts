@@ -1,4 +1,5 @@
 export * from './component-factories';
+export * from './habitats';
 export * from './large-mines';
 export * from './life-support';
 export * from './liquids';

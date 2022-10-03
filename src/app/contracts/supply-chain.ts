@@ -38,6 +38,7 @@ export const Materials = [
     'Green Science Pack',
     'Yellow Science Pack',
     'Red Science Pack',
+    'Population',
 ] as const;
 
 export type Material = typeof Materials[number];

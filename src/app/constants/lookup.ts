@@ -22,6 +22,14 @@ import {
     VREdutainmentFactory,
 } from './finished-goods-factories';
 import {
+    BasicHabitat,
+    DecentHabitat,
+    LuxuryResidentialHighrise,
+    NiceHabitat,
+    ResidentialBuilding,
+    ResidentialHighrise,
+} from './habitats';
+import {
     LargeAluminumMine,
     LargeCopperMine,
     LargeIridiumMine,
@@ -94,4 +102,13 @@ export const factoryLookup: FactoryLookup = {
     Meat: [MeatLab],
     'Good Meal': [MealFactory],
     'Organic Waste': [MeatLab, VegetableFarm],
+
+    Population: [
+        LuxuryResidentialHighrise,
+        ResidentialHighrise,
+        ResidentialBuilding,
+        NiceHabitat,
+        DecentHabitat,
+        BasicHabitat,
+    ],
 };
