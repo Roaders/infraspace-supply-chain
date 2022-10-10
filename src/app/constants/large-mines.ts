@@ -62,3 +62,12 @@ export const LargeIridiumMine: IFactory<'Iridium'> = {
     output: { Iridium: 1 },
     duration: 5.4,
 };
+
+export const ColossalAdamantineDrill: IFactory<'Adamantine'> = {
+    name: 'Colossal Adamantine Drill',
+    buildCost: { Concrete: 10000, Steel: 3200 },
+    workers: 70,
+    input: { Power: 60, 'Red Science Pack': 2, 'Iridium Propellant': 5, Methane: 10 },
+    output: { Adamantine: 1 },
+    duration: 24,
+};

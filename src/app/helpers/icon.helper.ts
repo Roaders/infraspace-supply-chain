@@ -145,5 +145,7 @@ export function mapMaterialToIcon(material: Material): Icon {
             return 'citizenMovingIn';
         case 'Power':
             return 'power';
+        case 'Adamantine':
+            return 'adamantine';
     }
 }

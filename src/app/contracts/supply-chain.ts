@@ -40,6 +40,7 @@ export const Materials = [
     'Red Science Pack',
     'Population',
     'Power',
+    'Adamantine',
 ] as const;
 
 export type Material = typeof Materials[number];
