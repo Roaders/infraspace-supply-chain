@@ -1,12 +1,15 @@
 import { Injectable } from '@morgan-stanley/needle';
+import { filter } from 'rxjs';
 
 import { FactoryTotals, IFactory, Material } from '../../contracts';
-import { getFactories, getRate } from '../../helpers';
+import { EfficiencyHelper, getFactories, getRate } from '../../helpers';
 
 @Injectable()
 export class MaterialProductionModelFactory {
+    constructor(private helper: EfficiencyHelper) {}
+
     public create<T extends Material>(material: T, depth = 0): MaterialProductionModel<T> {
-        return new MaterialProductionModel<T>(material, this, depth);
+        return new MaterialProductionModel<T>(material, this, depth, this.helper);
     }
 }
 
@@ -14,13 +17,18 @@ export class MaterialProductionModel<T extends Material = Material> {
     constructor(
         public readonly material: T,
         private childFactory: MaterialProductionModelFactory,
-        public readonly depth = 0
+        public readonly depth = 0,
+        private helper: EfficiencyHelper
     ) {
         this._materialFactories = getFactories(material);
         this._selectedFactory = this._materialFactories[0];
 
         this.updateChildren();
         this.updateProductionRate();
+
+        helper.efficiencyUpdates
+            .pipe(filter((factory) => factory === this.selectedFactory))
+            .subscribe(() => this.updateRequiredFactoryCount());
     }
 
     private _requiredRate: number | undefined;
@@ -73,10 +81,14 @@ export class MaterialProductionModel<T extends Material = Material> {
 
     public set selectedFactory(value: IFactory<T>) {
         this._selectedFactory = value;
-        this._factoryCount = 1;
 
         this.updateChildren();
         this.updateRequiredFactoryCount();
+    }
+
+    public get efficiency(): string {
+        const efficiency = this.helper.getEfficiency(this.selectedFactory);
+        return efficiency === 100 ? `` : `(efficiency ${efficiency}%) `;
     }
 
     public hierarchicalFactorySelection(factory: IFactory) {
@@ -162,7 +174,8 @@ export class MaterialProductionModel<T extends Material = Material> {
             this.material,
             this._selectedFactory.output[this.material] ?? 0,
             this._selectedFactory.duration,
-            factoryCount
+            factoryCount,
+            this.helper.getEfficiency(this.selectedFactory)
         );
     }
 

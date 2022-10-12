@@ -1,0 +1,21 @@
+<div>
+
+    <div ngbDropdown (openChange)="onOpenChange()">
+        <button type="button" class="btn btn-outline-primary d-flex align-items-center" id="selectionDropdown"
+            ngbDropdownToggle>Factory Efficiencies</button>
+        <div ngbDropdownMenu aria-labelledby="selectionDropdown" class="efficiency-drop-down">
+
+            <div *ngIf="factories.length > 5" class="m-2">
+                <input type="text" class="form-control" [(ngModel)]="filterText" placeholder="Search...">
+            </div>
+
+            <div class="factory-list ps-3">
+                <div class="p-1 d-flex justify-content-between align-items-center" *ngFor="let factory of filteredFactories">
+                    <span>{{factory.name}}</span>
+                    
+                    <input type="number" class="form-control" [value]="helper.getEfficiency(factory)" (change)="updateEfficiency($event, factory)" min="1" >
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

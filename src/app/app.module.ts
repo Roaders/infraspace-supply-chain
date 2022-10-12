@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import npmPackage from '../../package.json';
 import { AppComponent } from './components/app/app.component';
 import { BulkFactorySelectorComponent } from './components/bulk-factory-selector/bulk-factory-selector.component';
+import { EfficiencySelectorComponent } from './components/efficiency-selector/efficiency-selector.component';
 import { MaterialProductionComponent } from './components/material-production/material-production.component';
 import { MaterialSelectorComponent } from './components/material-selector/material-selector.component';
 import { SupplyChainComponent } from './components/supply-chain/supply-chain.component';
@@ -23,6 +24,7 @@ import { IconClassPipe } from './pipes';
         TotalsDisplayComponent,
         BulkFactorySelectorComponent,
         IconClassPipe,
+        EfficiencySelectorComponent,
     ],
     imports: [BrowserModule, NgbModule, FormsModule],
     providers: [],
