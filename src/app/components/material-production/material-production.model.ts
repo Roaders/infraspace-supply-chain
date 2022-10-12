@@ -110,7 +110,8 @@ export class MaterialProductionModel<T extends Material = Material> {
             component,
             this._selectedFactory.input?.[component] ?? 0,
             this._selectedFactory.duration,
-            this._factoryCount
+            this._factoryCount,
+            this.helper.getEfficiency(this.selectedFactory)
         );
     }
 
