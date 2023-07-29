@@ -27,7 +27,7 @@
                     ngbDropdownToggle>{{model.selectedFactory.name | formatName}}</button>
                 <div ngbDropdownMenu aria-labelledby="selectionDropdown" class="material-drop-down">
                     <button ngbDropdownItem *ngFor="let factory of model.materialFactories"
-                        (click)="model.selectedFactory = factory">{{factory.name}}</button>
+                        (click)="model.selectedFactory = factory">{{factory.name | formatName}}</button>
                 </div>
             </div>
             <span>{{model.efficiency}}</span>
