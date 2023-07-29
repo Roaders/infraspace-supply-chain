@@ -12,10 +12,10 @@
             <button type="button" class="btn btn-outline-primary d-flex align-items-center" id="selectionDropdown"
                 ngbDropdownToggle>
                 <i class="material-icon" [ngClass]="material | iconClass"></i> 
-                {{material}}</button>
+                {{material | formatName}}</button>
             <div ngbDropdownMenu aria-labelledby="selectionDropdown" class="material-drop-down">
                 <button ngbDropdownItem *ngFor="let factory of getFactories(material)"
-                    (click)="selectFactory(factory)">{{factory.name}}</button>
+                    (click)="selectFactory(factory)">{{factory.name | formatName}}</button>
             </div>
         </div>
         

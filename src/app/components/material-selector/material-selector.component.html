@@ -4,7 +4,7 @@
         <button type="button" class="btn btn-outline-primary d-flex align-items-center" id="selectionDropdown"
             ngbDropdownToggle>
             <i *ngIf="selectedMaterial != null" class="material-icon" [ngClass]="selectedMaterial | iconClass"></i> 
-            {{buttonText}}</button>
+            {{buttonText | formatName}}</button>
         <div ngbDropdownMenu aria-labelledby="selectionDropdown" class="material-drop-down">
 
             <div *ngIf="materials.length > 5" class="m-2">
@@ -13,7 +13,7 @@
 
             <div>
                 <button ngbDropdownItem *ngFor="let material of filteredMaterials" class="d-flex align-items-center"
-                    (click)="selectMaterial(material)"><i class="material-icon" [ngClass]="material | iconClass"></i> {{material}}</button>
+                    (click)="selectMaterial(material)"><i class="material-icon" [ngClass]="material | iconClass"></i> {{material  | formatName}}</button>
             </div>
 
         </div>

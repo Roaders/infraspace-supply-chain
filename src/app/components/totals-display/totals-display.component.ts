@@ -112,7 +112,7 @@ export class TotalsDisplayComponent {
         this._totalWorkers = 0;
 
         this._buildCosts = Array.from(this._factoriesMap.entries()).reduce<BuildCosts>((costs, [factory, count]) => {
-            this._totalPower += factory.input?.Power ?? 0 * count;
+            this._totalPower += factory.power * count;
             this._totalWorkers += factory.workers * count;
 
             return addBuildCosts(costs, factory, count);

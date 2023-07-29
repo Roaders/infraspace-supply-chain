@@ -1,125 +1,95 @@
-import { FactoryLookup } from '../contracts';
-import {
-    ElectronicsFactory,
-    HoloDisplayFactory,
-    IridiumAlloyFactory,
-    MicrochipFactory,
-    MotorFactory,
-    NanotubesFactory,
-    NeuralProcessorFactory,
-    RadiationCoreFactory,
-} from './component-factories';
-import {
-    AIControlUnitFactory,
-    ComputerFactory,
-    ConcreteFactory,
-    HighTechWorkshop,
-    HomeAppliancesFactory,
-    HomeRobotFactory,
-    IndustrialRobotFactory,
-    IridiumPropellantFactory,
-    SteelMill,
-    VREdutainmentFactory,
-} from './finished-goods-factories';
-import {
-    BasicHabitat,
-    DecentHabitat,
-    LuxuryResidentialHighrise,
-    NiceHabitat,
-    ResidentialBuilding,
-    ResidentialHighrise,
-} from './habitats';
-import {
-    ColossalAdamantineDrill,
-    LargeAluminumMine,
-    LargeCopperMine,
-    LargeIridiumMine,
-    LargeIronMine,
-    LargeSandMine,
-    LargeSulfurMine,
-    LargeUraniumMine,
-} from './large-mines';
-import {
-    AtmosphereProcessor,
-    CarbonProcessor,
-    FertilizerFactory,
-    MealFactory,
-    MeatLab,
-    OxygenProcessor,
-    SimpleFarm,
-    VegetableFarm,
-} from './life-support';
-import { GroundWaterExtractor, MethaneDrill, MethaneFermentationPlant, WaterAirFilter } from './liquids';
-import { AluminumMine, CopperMine, IridiumMine, IronMine, SandMine, SulfurMine, UraniumMine } from './mines';
-import {
-    FastNeutronReactor,
-    MethanePowerPlant,
-    NuclearPowerPlant,
-    SolarPowerPlant,
-    WindTurbine,
-} from './power-stations';
-import {
-    BlueSciencePackFactory,
-    GreenSciencePackFactory,
-    RedSciencePackFactory,
-    YellowSciencePackFactory,
-} from './research-buildings';
+import { FactoryLookup, IFactory, Material, Materials } from '../contracts';
+import { buildings as buildingsImport } from './buildings';
 
-export const factoryLookup: FactoryLookup = {
-    Sand: [LargeSandMine, SandMine],
-    Sulfur: [LargeSulfurMine, SulfurMine],
-    Iron: [LargeIronMine, IronMine],
-    Copper: [LargeCopperMine, CopperMine],
-    Aluminum: [LargeAluminumMine, AluminumMine],
-    Uranium: [LargeUraniumMine, UraniumMine],
-    Iridium: [LargeIridiumMine, IridiumMine],
-    Adamantine: [ColossalAdamantineDrill],
+interface IResourceCount {
+    resourceName: Material;
+    amount: number;
+}
 
-    Electronics: [ElectronicsFactory],
-    Microchip: [MicrochipFactory],
-    'Neural Processor': [NeuralProcessorFactory],
-    Motor: [MotorFactory],
-    Nanotubes: [NanotubesFactory],
-    'Iridium Alloy': [IridiumAlloyFactory],
-    'Holo-Display': [HoloDisplayFactory],
-    'Radiation Core': [RadiationCoreFactory],
+interface IConfigFactory {
+    name: string;
+    costs: IResourceCount[];
+    productionLogic: {
+        type: 'factory';
+        productionDefinition: {
+            consumables: IResourceCount[];
+            producables: IResourceCount[];
+            timeSteps: number;
+            powerNeeded: number;
+            maxWorkers: number;
+        };
+    };
+}
 
-    Concrete: [ConcreteFactory],
-    Steel: [SteelMill],
-    'Home Appliances': [HomeAppliancesFactory],
-    Computer: [ComputerFactory],
-    'Home Robot': [HomeRobotFactory],
-    'Industrial Robot': [IndustrialRobotFactory],
-    'High Tech Tools': [HighTechWorkshop],
-    'VR-Edutainment': [VREdutainmentFactory],
-    'Iridium Propellant': [IridiumPropellantFactory],
-    'AI Control Unit': [AIControlUnitFactory],
+const buildings: unknown[] = Object.entries(buildingsImport).map(([name, building]) => ({
+    name,
+    ...building,
+}));
 
-    'Blue Science Pack': [BlueSciencePackFactory],
-    'Green Science Pack': [GreenSciencePackFactory],
-    'Yellow Science Pack': [YellowSciencePackFactory],
-    'Red Science Pack': [RedSciencePackFactory],
+export const factoryLookup: FactoryLookup = buildFactoryLookup();
 
-    Water: [GroundWaterExtractor, WaterAirFilter],
-    Methane: [MethaneDrill, MethaneFermentationPlant],
+function buildFactoryLookup(): FactoryLookup {
+    return Materials.reduce<FactoryLookup>((lookup, material) => {
+        const factories = findMaterialFactories(material);
 
-    Oxygen: [OxygenProcessor, AtmosphereProcessor],
-    Carbon: [CarbonProcessor, AtmosphereProcessor],
-    'Survival Food': [SimpleFarm],
-    Fertilizer: [FertilizerFactory],
-    Vegetables: [VegetableFarm],
-    Meat: [MeatLab],
-    'Good Meal': [MealFactory],
-    'Organic Waste': [MeatLab, VegetableFarm],
+        if (factories != null) {
+            lookup = { ...lookup, [material]: factories };
+        }
 
-    Population: [
-        LuxuryResidentialHighrise,
-        ResidentialHighrise,
-        ResidentialBuilding,
-        NiceHabitat,
-        DecentHabitat,
-        BasicHabitat,
-    ],
+        return lookup;
+    }, {});
+}
 
-    Power: [FastNeutronReactor, NuclearPowerPlant, MethanePowerPlant, SolarPowerPlant, WindTurbine],
-};
+function findMaterialFactories<M extends Material>(material: M): [IFactory<M>, ...IFactory<M>[]] | undefined {
+    const materialFactories = buildings
+        .filter(isConfigFactory)
+        .filter((factory) =>
+            factory.productionLogic.productionDefinition.producables.some(
+                (resource) => resource.resourceName === material
+            )
+        );
+
+    const first = materialFactories.shift();
+
+    if (first != null) {
+        return [mapFactory<M>(first), ...materialFactories.map(mapFactory)];
+    }
+
+    return undefined;
+}
+
+function mapFactory<M extends Material>(building: IConfigFactory): IFactory<M> {
+    const production = building.productionLogic.productionDefinition;
+
+    const buildCost = building.costs.reduce<Partial<Record<Material, number>>>(
+        (lookup, cost) => ({ ...lookup, [cost.resourceName]: cost.amount }),
+        {}
+    );
+    const output = production.producables.reduce<Partial<Record<Material, number>>>(
+        (lookup, cost) => ({ ...lookup, [cost.resourceName]: cost.amount }),
+        {}
+    );
+    const input =
+        production.consumables.length > 0
+            ? production.consumables.reduce<Partial<Record<Material, number>>>(
+                  (lookup, cost) => ({ ...lookup, [cost.resourceName]: cost.amount }),
+                  {}
+              )
+            : undefined;
+
+    return {
+        name: building.name,
+        duration: production.timeSteps / 5000,
+        workers: production.maxWorkers,
+        buildCost,
+        power: production.powerNeeded,
+        output: output as any,
+        input,
+    };
+}
+
+function isConfigFactory(value: unknown): value is IConfigFactory {
+    const factory = value as IConfigFactory;
+
+    return factory.productionLogic?.type === 'factory' && Array.isArray(factory.costs);
+}

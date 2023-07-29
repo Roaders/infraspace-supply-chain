@@ -1,0 +1,272 @@
+{
+  "road_gravel_twoWay_twoLane": {
+    "type": "gravel",
+    "roadWidth": 1.5,
+    "forwardLanes": 1,
+    "backwardLanes": 1,
+    "costs": [
+      {"resourceName": "concrete", "amount": 10 },
+    ],
+    "requiredTech": [],
+  },
+  "road_gravel_oneWay_oneLane": {
+    "type": "gravel",
+    "roadWidth": 1.5,
+    "forwardLanes": 1,
+    "backwardLanes": 0,
+    "costs": [
+      {"resourceName": "concrete", "amount": 10 },
+    ],
+    "requiredTech": ["oneWayRoads"],
+  },
+
+
+
+  "road_concrete_twoWay_twoLane": {
+    "type": "concrete",
+    "roadWidth": 1.5,
+    "forwardLanes": 1,
+    "backwardLanes": 1,
+    "costs": [
+      {"resourceName": "concrete", "amount": 20 },
+    ],
+    "requiredTech": ["concreteRoads"],
+  },
+  "road_concrete_twoWay_fourLane": {
+    "type": "concrete",
+    "forwardLanes": 2,
+    "backwardLanes": 2,
+    "costs": [
+      {"resourceName": "concrete", "amount": 40 },
+    ],
+    "requiredTech": ["fourLaneRoads"],
+  },
+  "road_concrete_twoWay_sixLane": {
+    "type": "concrete",
+    "forwardLanes": 3,
+    "backwardLanes": 3,
+    "costs": [
+      {"resourceName": "concrete", "amount": 60 },
+    ],
+    "requiredTech": ["sixLaneRoads"],
+  },
+  "road_concrete_oneWay_oneLane": {
+    "type": "concrete",
+    "roadWidth": 1.5,
+    "forwardLanes": 1,
+    "backwardLanes": 0,
+    "costs": [
+      {"resourceName": "concrete", "amount": 15 },
+    ],
+    "requiredTech": ["concreteRoads", "oneWayRoads"],
+  },
+  "road_concrete_oneWay_twoLane": {
+    "type": "concrete",
+    "roadWidth": 1.5,
+    "forwardLanes": 2,
+    "backwardLanes": 0,
+    "costs": [
+      {"resourceName": "concrete", "amount": 30 },
+    ],
+    "requiredTech": ["concreteRoads", "oneWayRoads", "fourLaneRoads"],
+  },
+  "road_concrete_oneWay_threeLane": {
+    "type": "concrete",
+    "roadWidth": 2,
+    "forwardLanes": 3,
+    "backwardLanes": 0,
+    "costs": [
+      {"resourceName": "concrete", "amount": 45 },
+    ],
+    "requiredTech": ["concreteRoads", "oneWayRoads", "sixLaneRoads"],
+  },
+  
+
+
+  "road_highway_twoWay_twoLane": {
+    "type": "highway",
+    "roadWidth": 1.5,
+    "forwardLanes": 1,
+    "backwardLanes": 1,
+    "canHaveSideRoads": false,
+    "costs": [
+      {"resourceName": "concrete", "amount": 100 },
+      {"resourceName": "steel", "amount": 100 },
+    ],
+    "requiredTech": ["highways"],
+  },
+  "road_highway_twoWay_fourLane": {
+    "type": "highway",
+    "forwardLanes": 2,
+    "backwardLanes": 2,
+    "canHaveSideRoads": false,
+    "costs": [
+      {"resourceName": "concrete", "amount": 150 },
+      {"resourceName": "steel", "amount": 150 },
+    ],
+    "requiredTech": ["highways", "fourLaneRoads"],
+  },
+  "road_highway_twoWay_sixLane": {
+    "type": "highway",
+    "forwardLanes": 3,
+    "backwardLanes": 3,
+    "canHaveSideRoads": false,
+    "costs": [
+      {"resourceName": "concrete", "amount": 200 },
+      {"resourceName": "steel", "amount": 200 },
+    ],
+    "requiredTech": ["highways", "sixLaneRoads"],
+  },
+  "road_highway_oneWay_oneLane": {
+    "type": "highway",
+    "roadWidth": 1.5,
+    "forwardLanes": 1,
+    "backwardLanes": 0,
+    "canHaveSideRoads": false,
+    "costs": [
+      {"resourceName": "concrete", "amount": 50 },
+      {"resourceName": "steel", "amount": 50 },
+    ],
+    "requiredTech": ["highways", "oneWayRoads"],
+  },
+  "road_highway_oneWay_twoLane": {
+    "type": "highway",
+    "roadWidth": 1.5,
+    "forwardLanes": 2,
+    "backwardLanes": 0,
+    "canHaveSideRoads": false,
+    "costs": [
+      {"resourceName": "concrete", "amount": 100 },
+      {"resourceName": "steel", "amount": 100 },
+    ],
+    "requiredTech": ["highways", "oneWayRoads", "fourLaneRoads"],
+  },
+  "road_highway_oneWay_threeLane": {
+    "type": "highway",
+    "roadWidth": 2,
+    "forwardLanes": 3,
+    "backwardLanes": 0,
+    "canHaveSideRoads": false,
+    "costs": [
+      {"resourceName": "concrete", "amount": 150 },
+      {"resourceName": "steel", "amount": 150 },
+    ],
+    "requiredTech": ["highways", "oneWayRoads", "sixLaneRoads"],
+  },
+
+
+  
+  "road_superhighway_oneWay_oneLane": {
+    "type": "superhighway",
+    "roadWidth": 1.5,
+    "forwardLanes": 1,
+    "backwardLanes": 0,
+    "canHaveSideRoads": false,
+    "costs": [
+      {"resourceName": "concrete", "amount": 150 },
+      {"resourceName": "steel", "amount": 150 },
+    ],
+    "requiredTech": ["superhighways"],
+  },
+  "road_superhighway_oneWay_twoLane": {
+    "type": "superhighway",
+    "roadWidth": 1.5,
+    "forwardLanes": 2,
+    "backwardLanes": 0,
+    "canHaveSideRoads": false,
+    "costs": [
+      {"resourceName": "concrete", "amount": 250 },
+      {"resourceName": "steel", "amount": 250 },
+    ],
+    "requiredTech": ["superhighways", "fourLaneRoads"],
+  },
+  "road_superhighway_oneWay_threeLane": {
+    "type": "superhighway",
+    "roadWidth": 2,
+    "forwardLanes": 3,
+    "backwardLanes": 0,
+    "canHaveSideRoads": false,
+    "costs": [
+      {"resourceName": "concrete", "amount": 350 },
+      {"resourceName": "steel", "amount": 350 },
+    ],
+    "requiredTech": ["superhighways", "sixLaneRoads"],
+  },
+
+  
+  "rail_oneWay": {
+    "vehicleType": "train",
+    "type": "rail",
+    "maxSpeed": 150,
+    "forwardLanes": 1,
+    "backwardLanes": 0,
+    "costs": [
+      {"resourceName": "steel", "amount": 100 },
+    ],
+    "requiredTech": ["trains"],
+  },
+  "rail_oneWay_highspeed": {
+    "vehicleType": "train",
+    "type": "rail",
+    "maxSpeed": 300,
+    "forwardLanes": 1,
+    "backwardLanes": 0,
+    "costs": [
+      {"resourceName": "steel", "amount": 200 },
+    ],
+    "requiredTech": ["highSpeedRail"],
+  },
+  "rail_oneWay_superhighspeed": {
+    "vehicleType": "train",
+    "type": "rail",
+    "maxSpeed": 750,
+    "forwardLanes": 1,
+    "backwardLanes": 0,
+    "costs": [
+      {"resourceName": "steel", "amount": 500 },
+    ],
+    "requiredTech": ["lightningRail"],
+  },
+
+  
+  "pipe_oxygen": {
+    "vehicleType": "pipe",
+    "type": "pipe",
+    "resourceName": "oxygen",
+    "floorOffset": -5,
+    "costs": [
+      {"resourceName": "steel", "amount": 50 },
+    ],
+    "requiredTech": ["pipes"],
+  },
+  "pipe_water": {
+    "vehicleType": "pipe",
+    "type": "pipe",
+    "resourceName": "water",
+    "floorOffset": -10,
+    "costs": [
+      {"resourceName": "steel", "amount": 50 },
+    ],
+    "requiredTech": ["pipes"],
+  },
+    "pipe_crudeOil": {
+    "vehicleType": "pipe",
+    "type": "pipe",
+    "resourceName": "crudeOil",
+    "floorOffset": -15,
+    "costs": [
+      {"resourceName": "steel", "amount": 50 },
+    ],
+    "requiredTech": ["pipes"],
+  },
+  "pipe_methane": {
+    "vehicleType": "pipe",
+    "type": "pipe",
+    "resourceName": "methane",
+    "floorOffset": -20,
+    "costs": [
+      {"resourceName": "steel", "amount": 50 },
+    ],
+    "requiredTech": ["methane"],
+  },
+}

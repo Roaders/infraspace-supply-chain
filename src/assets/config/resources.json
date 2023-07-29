@@ -1,0 +1,569 @@
+{
+    "empty": {
+        "name": "empty",
+        "stackSize": 50,
+        "colorHex": "E2E099",
+        "carModelName": "Car_A",
+        "canBePrioritized": false,
+        "canHaveExportRule": false,
+        "maxOrderStackSize": 1000
+    },
+    "power": {
+        "name": "power",
+        "stackSize": 50,
+        "colorHex": "E2E099",
+        "carModelName": "Car_A",
+        "canBePrioritized": true,
+        "canHaveExportRule": false,
+        "maxOrderStackSize": 1000
+    },
+    "terraform": {
+        "name": "terraform",
+        "stackSize": 50,
+        "colorHex": "68B355",
+        "carModelName": "Car_A",
+        "canBePrioritized": true,
+        "canHaveExportRule": false,
+        "maxOrderStackSize": 1000
+    },
+    "sand": {
+        "name": "sand",
+        "stackSize": 50,
+        "colorHex": "E2E099",
+        "carModelName": "Car_A",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "sulfur": {
+        "name": "sulfur",
+        "stackSize": 50,
+        "colorHex": "CFD954",
+        "carModelName": "Car_A",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "concrete": {
+        "name": "concrete",
+        "stackSize": 25,
+        "colorHex": "BFBFBF",
+        "carModelName": "Car_A",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "ironOre": {
+        "name": "ironOre",
+        "stackSize": 50,
+        "colorHex": "6DA4A4",
+        "carModelName": "Car_A",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "aluminium": {
+        "name": "aluminium",
+        "stackSize": 50,
+        "colorHex": "E0E0E0",
+        "carModelName": "Car_A",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "uranium": {
+        "name": "uranium",
+        "stackSize": 20,
+        "colorHex": "38B73B",
+        "carModelName": "Car_A",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "iridium": {
+        "name": "iridium",
+        "stackSize": 50,
+        "colorHex": "9142DB",
+        "carModelName": "Car_A",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "adamantine": {
+        "name": "adamantine",
+        "stackSize": 50,
+        "colorHex": "9142DB",
+        "carModelName": "Car_A",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "carbon": {
+        "name": "carbon",
+        "stackSize": 20,
+        "colorHex": "464646",
+        "carModelName": "Car_B",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "nanotubes": {
+        "name": "nanotubes",
+        "stackSize": 12,
+        "colorHex": "767676",
+        "carModelName": "Car_C",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "steel": {
+        "name": "steel",
+        "stackSize": 25,
+        "colorHex": "E4E4E4",
+        "carModelName": "Car_A",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "copperOre": {
+        "name": "copperOre",
+        "stackSize": 50,
+        "colorHex": "FF924B",
+        "carModelName": "Car_A",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "motor": {
+        "name": "motor",
+        "stackSize": 12,
+        "colorHex": "BA3939",
+        "carModelName": "Car_C",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "electronics": {
+        "name": "electronics",
+        "stackSize": 8,
+        "colorHex": "4CA252",
+        "carModelName": "Car_C",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "homeAppliance": {
+        "name": "homeAppliance",
+        "stackSize": 12,
+        "colorHex": "BA3939",
+        "carModelName": "Car_C",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "microchip": {
+        "name": "microchip",
+        "stackSize": 16,
+        "colorHex": "3EA4CF",
+        "carModelName": "Car_C",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "neuralProcessor": {
+        "name": "neuralProcessor",
+        "stackSize": 12,
+        "colorHex": "37BCEC",
+        "carModelName": "Car_C",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "computer": {
+        "name": "computer",
+        "stackSize": 12,
+        "colorHex": "815CC8",
+        "carModelName": "Car_C",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1
+    },
+    "homeRobot": {
+        "name": "homeRobot",
+        "stackSize": 12,
+        "colorHex": "666ED2",
+        "carModelName": "Car_E",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1
+    },
+    "industrialRobot": {
+        "name": "industrialRobot",
+        "stackSize": 20,
+        "colorHex": "666ED2",
+        "carModelName": "Car_E",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1
+    },
+    "highTechTool": {
+        "name": "highTechTool",
+        "stackSize": 12,
+        "colorHex": "6823A9",
+        "carModelName": "Car_C",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1
+    },
+    "vrEdutainment": {
+        "name": "vrEdutainment",
+        "stackSize": 12,
+        "colorHex": "704DBF",
+        "carModelName": "Car_C",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1
+    },
+    "reinforcedIridium": {
+        "name": "reinforcedIridium",
+        "stackSize": 16,
+        "colorHex": "6F20B7",
+        "carModelName": "Car_B",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "holoDisplay": {
+        "name": "holoDisplay",
+        "stackSize": 16,
+        "colorHex": "8B36B5",
+        "carModelName": "Car_C",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "superconductor": {
+        "name": "superconductor",
+        "stackSize": 32,
+        "colorHex": "6B42EC",
+        "carModelName": "Car_B",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "aiControlUnit": {
+        "name": "aiControlUnit",
+        "stackSize": 12,
+        "colorHex": "5952AF",
+        "carModelName": "Car_C",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "radiationCore": {
+        "name": "radiationCore",
+        "stackSize": 24,
+        "colorHex": "9FDB3F",
+        "carModelName": "Car_C",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "sciencePack1": {
+        "name": "sciencePack1",
+        "stackSize": 4,
+        "colorHex": "3087E2",
+        "carModelName": "Car_C",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1
+    },
+    "sciencePack2": {
+        "name": "sciencePack2",
+        "stackSize": 4,
+        "colorHex": "219C36",
+        "carModelName": "Car_C",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1
+    },
+    "sciencePack3": {
+        "name": "sciencePack3",
+        "stackSize": 8,
+        "colorHex": "E29730",
+        "carModelName": "Car_C",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1
+    },
+    "sciencePack4": {
+        "name": "sciencePack4",
+        "stackSize": 8,
+        "colorHex": "E23530",
+        "carModelName": "Car_C",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1
+    },
+    "spaceshipModule": {
+        "name": "spaceshipModule",
+        "stackSize": 50,
+        "colorHex": "BBBBBB",
+        "carModelName": "Car_A",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1
+    },
+    "oxygen": {
+        "name": "oxygen",
+        "stackSize": 10,
+        "colorHex": "23CBF5",
+        "carModelName": "Car_B",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "water": {
+        "name": "water",
+        "stackSize": 25,
+        "colorHex": "5059A1",
+        "carModelName": "Car_B",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "methane": {
+        "name": "methane",
+        "stackSize": 35,
+        "colorHex": "F6BE1E",
+        "carModelName": "Car_B",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "fertilizer": {
+        "name": "fertilizer",
+        "stackSize": 10,
+        "colorHex": "51C55A",
+        "carModelName": "Car_E",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "vegetables": {
+        "name": "vegetables",
+        "stackSize": 18,
+        "colorHex": "1D6421",
+        "carModelName": "Car_E",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "meat": {
+        "name": "meat",
+        "stackSize": 18,
+        "colorHex": "FF4E51",
+        "carModelName": "Car_C",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "organicWaste": {
+        "name": "organicWaste",
+        "stackSize": 20,
+        "colorHex": "8B4513",
+        "carModelName": "Car_C",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "goodFood": {
+        "name": "goodFood",
+        "stackSize": 18,
+        "colorHex": "63DD6F",
+        "carModelName": "Car_C",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "survivalFood": {
+        "name": "survivalFood",
+        "stackSize": 18,
+        "colorHex": "1D6421",
+        "carModelName": "Car_E",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "filteringMesh":  {
+        "name": "filteringMesh",
+        "stackSize": 20,
+        "colorHex": "206AD9",
+        "carModelName": "Car_A",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "advancedFilteringMesh":  {
+        "name": "advancedFilteringMesh",
+        "stackSize": 10,
+        "colorHex": "0C4293",
+        "carModelName": "Car_A",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "superconductingCoil":  {
+        "name": "superconductingCoil",
+        "stackSize": 20,
+        "colorHex": "D7751E",
+        "carModelName": "Car_A",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "parkPoints": {
+        "name": "parkPoints",
+        "stackSize": 10,
+        "colorHex": "49C051",
+        "carModelName": "Car_D",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "culturePoints": {
+        "name": "culturePoints",
+        "stackSize": 10,
+        "colorHex": "1D3741",
+        "carModelName": "Car_D",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "schoolPoints": {
+        "name": "schoolPoints",
+        "stackSize": 10,
+        "colorHex": "3AE3FF",
+        "carModelName": "Car_D",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "car": {
+        "name": "car",
+        "stackSize": 50,
+        "colorHex": "AA23F5",
+        "carModelName": "Car_A",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "citizenMovingIn": {
+        "name": "citizenMovingIn",
+        "stackSize": 1,
+        "colorHex": "FA4FE3",
+        "carModelName": "Car_D",
+        "canBePrioritized": false,
+        "canHaveExportRule": false,
+        "maxOrderStackSize": 1
+    },
+    "citizenMovingOut": {
+        "name": "citizenMovingOut",
+        "stackSize": 1,
+        "colorHex": "FA4FE3",
+        "carModelName": "Car_D",
+        "canBePrioritized": false,
+        "canHaveExportRule": false,
+        "maxOrderStackSize": 1
+    },
+    "crudeOil": {
+        "name": "crudeOil",
+        "stackSize": 20,
+        "colorHex": "2E2E2E",
+        "carModelName": "Car_B",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "stemCell": {
+        "name": "stemCell",
+        "stackSize": 10,
+        "colorHex": "FF4E51",
+        "carModelName": "Car_C",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "copperBar": {
+        "name": "copperBar",
+        "stackSize": 20,
+        "colorHex": "FF924B",
+        "carModelName": "Car_A",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "chemicals": {
+        "name": "chemicals",
+        "stackSize": 10,
+        "colorHex": "9142DB",
+        "carModelName": "Car_E",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "industrialChemicals": {
+        "name": "industrialChemicals",
+        "stackSize": 10,
+        "colorHex": "9142DB",
+        "carModelName": "Car_E",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "enrichedUranium": {
+        "name": "enrichedUranium",
+        "stackSize": 100,
+        "colorHex": "38B73B",
+        "carModelName": "Car_B",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "plastic": {
+        "name": "plastic",
+        "stackSize": 20,
+        "colorHex": "BFBFBF",
+        "carModelName": "Car_C",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "sensor": {
+        "name": "sensor",
+        "stackSize": 20,
+        "colorHex": "BFBFBF",
+        "carModelName": "Car_C",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+    "heatExchanger": {
+        "name": "heatExchanger",
+        "stackSize": 20,
+        "colorHex": "D7751E",
+        "carModelName": "Car_A",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    },
+       "distilledWater": {
+        "name": "distilledWater",
+        "stackSize": 10,
+        "colorHex": "5059A1",
+        "carModelName": "Car_B",
+        "canBePrioritized": true,
+        "canHaveExportRule": true,
+        "maxOrderStackSize": 1000
+    }
+}

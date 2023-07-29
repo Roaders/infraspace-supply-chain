@@ -25,7 +25,7 @@ export class BulkFactorySelectorComponent {
         return factories
             .map((factory) => factory.input)
             .reduce((materials, input) => addInputMaterials(materials, input), new Array<Material>())
-            .filter((material) => factoryLookup[material].length > 1);
+            .filter((material) => factoryLookup[material] != null && factoryLookup[material]!.length > 1);
     }
 
     public getFactories(material: Material): IFactory[] {

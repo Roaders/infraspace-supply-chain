@@ -9,3 +9,12 @@ export class IconClassPipe implements PipeTransform {
         return mapMaterialToIcon(value);
     }
 }
+
+const upperCase = /[A-Z0-9]/g;
+
+@Pipe({ name: 'formatName' })
+export class FormatNamePipe implements PipeTransform {
+    transform(name: string) {
+        return `${name.charAt(0).toUpperCase()}${name.substring(1).replace(upperCase, (existing) => ` ${existing}`)}`;
+    }
+}

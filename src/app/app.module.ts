@@ -12,7 +12,7 @@ import { MaterialSelectorComponent } from './components/material-selector/materi
 import { SupplyChainComponent } from './components/supply-chain/supply-chain.component';
 import { SupplyChainBrowserComponent } from './components/supply-chain-browser/supply-chain-browser.component';
 import { TotalsDisplayComponent } from './components/totals-display/totals-display.component';
-import { IconClassPipe } from './pipes';
+import { FormatNamePipe, IconClassPipe } from './pipes';
 
 @NgModule({
     declarations: [
@@ -25,6 +25,7 @@ import { IconClassPipe } from './pipes';
         BulkFactorySelectorComponent,
         IconClassPipe,
         EfficiencySelectorComponent,
+        FormatNamePipe,
     ],
     imports: [BrowserModule, NgbModule, FormsModule],
     providers: [],

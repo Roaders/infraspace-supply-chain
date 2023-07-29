@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
+import { factoryLookup } from '../../constants/lookup';
 import { Material, Materials } from '../../contracts';
-import { mapMaterialToIcon } from '../../helpers';
 
 @Component({
     selector: 'material-selector',
@@ -9,7 +9,9 @@ import { mapMaterialToIcon } from '../../helpers';
     styleUrls: ['./material-selector.component.scss'],
 })
 export class MaterialSelectorComponent {
-    private _materials = Array.from(Materials).sort();
+    private _materials = Array.from(Materials)
+        .filter((material) => factoryLookup[material] != null)
+        .sort();
 
     public get materials(): ReadonlyArray<Material> {
         return this._materials;

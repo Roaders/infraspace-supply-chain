@@ -1,0 +1,433 @@
+{ 
+    "bridge": {
+        "name": "bridge",
+        "productionDefinition": {
+            "consumables": [{
+               "resourceName": "aluminium",
+                "amount": 350
+            },{
+                "resourceName": "electronics",
+                "amount": 250
+            },{
+                "resourceName": "plastic",
+                "amount": 250
+            }],
+            "producables": [{
+                "resourceName": "spaceshipModule",
+                "amount": 1
+            }],
+            "timeSteps": 300000
+        },
+        "requiredSteps": 1,
+        "modelNames": [ "BridgeMain", "BridgeExtensions" ],
+        "productionBoosts": [{
+            "resourceName": "electronics",
+            "amount": 1,
+        },{
+            "resourceName": "plastic",
+            "amount": 1,
+        },
+        ]
+        //"habitatConsumptionFactor": 0.8,
+        // Technology Production Boost - plus 1 to Electronics and Industrial Parts
+    },
+    "communicationArray": {
+        "name": "communicationArray",
+        "productionDefinition": {
+            "consumables": [{
+                "resourceName": "neuralProcessor",
+                "amount": 150
+            },{
+                "resourceName": "vrEdutainment",
+                "amount": 300
+            },{
+                "resourceName": "homeRobot",
+                "amount": 250
+            }],
+            "producables": [{
+                "resourceName": "spaceshipModule",
+                "amount": 1 
+            }],
+            "timeSteps": 300000,
+        },
+        "requiredSteps": 1,
+        "modelNames": [ "CommunicationArray" ],
+        "productionBoosts": [{
+            "resourceName": "neuralProcessor",
+            "amount": 1,
+        },{
+            "resourceName": "vrEdutainment",
+            "amount": 2,
+        },{
+            "resourceName": "homeRobot",
+            "amount": 2,
+        },
+        ]
+        // Technology Production Boost - plus 1 to Neural Processor, VR Edutainment and Home Robot
+    },
+    "computerDeck": {
+        "name": "computerDeck",
+        "productionDefinition": {
+            "consumables": [{
+                "resourceName": "computer",
+                "amount": 250
+            },{
+                "resourceName": "holoDisplay",
+                "amount": 100
+            }],
+            "producables": [{
+                "resourceName": "spaceshipModule",
+                "amount": 1 
+            }],
+            "timeSteps": 300000
+        },
+        "requiredSteps": 1,
+        "modelNames": [ "ComputerDeck" ],
+        "productionBoosts": [{
+            "resourceName": "holoDisplay",
+            "amount": 1,
+        },{
+            "resourceName": "computer",
+            "amount": 2,
+        },
+        ]
+
+        // Technology Production Boost - plus 2 to Holo Display and Computer
+    },
+    "ftlEngine": {
+        "name": "ftlEngine",
+        "productionDefinition": {
+            "consumables": [{
+                "resourceName": "reinforcedIridium",
+                "amount": 125
+            },{
+                "resourceName": "aiControlUnit",
+                "amount": 225
+            },{
+                "resourceName": "motor",
+                "amount": 350
+            }],
+            "producables": [{
+                "resourceName": "spaceshipModule",
+                "amount": 1
+            }],
+            "timeSteps": 300000
+        },
+        "requiredSteps": 1,
+        "modelNames": [ "FTLEngine" ],
+        "productionBoosts": [{
+            "resourceName": "reinforcedIridium",
+            "amount": 1,
+        },{
+            "resourceName": "aiControlUnit",
+            "amount": 2,
+        },{
+            "resourceName": "motor",
+            "amount": 2,
+        },
+        ]
+        // Technology Production Boost - plus 1 to High Tech Tools, Ai Control Unit and Motor
+    },
+    "ftlFuelCells": {
+        "name": "ftlFuelCells",
+        "productionDefinition": {
+            "consumables": [{
+                "resourceName": "industrialChemicals",
+                "amount": 300
+            },{
+                "resourceName": "superconductor",
+                "amount": 75
+            },{
+                "resourceName": "sciencePack3",
+                "amount": 125
+            }],
+            "producables": [{
+                "resourceName": "spaceshipModule",
+                "amount": 1
+            }],
+            "timeSteps": 300000
+        },
+        "requiredSteps": 1,
+        "modelNames": [ "FTLFuelCells" ],
+        "productionBoosts": [{
+            "resourceName": "superconductor",
+            "amount": 1,
+        },{
+            "resourceName": "industrialChemicals",
+            "amount": 1,
+        }]
+        // Technology Production Boost - plus 2 to Iridium Propellant
+    },
+    "ftlTurbine": {
+        "name": "ftlTurbine",
+        "productionDefinition": {
+            "consumables": [{
+                "resourceName": "neuralProcessor",
+                "amount": 150
+            },{
+                "resourceName": "copperBar",
+                "amount": 350
+            },{
+                "resourceName": "distilledWater",
+                "amount": 150
+             }],
+            "producables": [{
+                "resourceName": "spaceshipModule",
+                "amount": 1
+            }],
+            "timeSteps": 300000
+        },
+        "requiredSteps": 1,
+        "modelNames": [ "FTLTurbine" ],
+        "productionBoosts": [{
+            "resourceName": "industrialRobot",
+            "amount": 2,
+        },{
+            "resourceName": "distilledWater",
+            "amount": 1,
+        },{
+            "resourceName": "copperBar",
+            "amount": 1,
+        }]
+        // Technology Production Boost - plus 1 to Neural Processor, Industrial Robot and Copper Mill
+    },
+    "orbitalScanners": {
+        "name": "orbitalScanners",
+        "productionDefinition": {
+            "consumables": [{
+                "resourceName": "superconductingCoil",
+                "amount": 75
+            },{
+                "resourceName": "advancedFilteringMesh",
+                "amount": 200
+            }],
+            "producables": [{
+                "resourceName": "spaceshipModule",
+                "amount": 1
+            }],
+            "timeSteps": 300000
+        },
+        "requiredSteps": 1,
+        "modelNames": [ "OrbitalScanners" ],
+        "productionBoosts": [{
+            "resourceName": "superconductingCoil",
+            "amount": 1,
+        },{
+            "resourceName": "advancedFilteringMesh",
+            "amount": 1,
+        },{
+            "resourceName": "filteringMesh",
+            "amount": 2,
+        }]
+        //"bonusText": "spaceshipUpgrade_techBoostFull"
+        // Technology Production Boost - plus 1 to Super Conducting Coil, Filtering Mesh and Advanced Filtering Mesh
+    },
+    "passengerDeck": {
+        "name": "passengerDeck",
+        "productionDefinition": {
+            "consumables": [{
+                "resourceName": "water",
+                "amount": 500
+            },{
+                "resourceName": "oxygen",
+                "amount": 500
+            },{
+                "resourceName": "goodFood",
+                "amount": 250
+            },{
+                "resourceName": "survivalFood",
+                "amount": 250
+            }],
+            "producables": [{
+                "resourceName": "spaceshipModule",
+                "amount": 1
+            }],
+            "timeSteps": 300000
+        },
+        "requiredSteps": 1,
+        "modelNames": [ "Passenger" ],
+        "productionBoosts": [{
+            "resourceName": "goodFood",
+            "amount": 1,
+        },{
+            "resourceName": "survivalFood",
+            "amount": 1,
+        }],
+        "habitatConsumptionFactor": 0.85,
+        // Technology Production Boost - Reduce the Needs of Habitats by 25%
+    },
+    "hull": {
+        "name": "hull",
+        "productionDefinition": {
+            "consumables": [{
+                "resourceName": "heatExchanger",
+                "amount": 350
+            },{
+                "resourceName": "sensor",
+                "amount": 350
+            },{
+                "resourceName": "chemicals",
+                "amount": 350
+            }],
+            "producables": [{
+                "resourceName": "spaceshipModule",
+                "amount": 1
+            }],
+            "timeSteps": 300000
+        },
+        "requiredSteps": 1,
+        "modelNames": [ "Spaceship" ],
+        "productionBoosts": [{
+            "resourceName": "sensor",
+            "amount": 2,
+        },{
+            "resourceName": "heatExchanger",
+            "amount": 2,
+        },]
+        // Technology Production Boost - plus 1 to All Large Mines
+    },
+    "radiationShield": {
+        "name": "radiationShield",
+        "productionDefinition": {
+            "consumables": [{
+                "resourceName": "radiationCore",
+                "amount": 450
+            },{
+                "resourceName": "enrichedUranium",
+                "amount": 350
+            }],
+            "producables": [{
+                "resourceName": "spaceshipModule",
+                "amount": 1
+            }],
+            "timeSteps": 300000
+        },
+        "requiredSteps": 1,
+        "modelNames": [ "RadiationShield" ],
+        "productionBoosts": [{
+            "resourceName": "radiationCore",
+            "amount": 4,
+        },{
+            "resourceName": "enrichedUranium",
+            "amount": 3,
+        }]
+        // Technology Production Boost - plus 1 to Radiation Core and Enriched Uranium
+    },
+    "storageDeck": {
+        "name": "storageDeck",
+        "productionDefinition": {
+            "consumables": [{
+                "resourceName": "concrete",
+                "amount": 1500
+            },{
+                "resourceName": "steel",
+                "amount": 1500
+            },{
+                "resourceName": "homeAppliance",
+                "amount": 200
+            }],
+            "producables": [{
+                "resourceName": "spaceshipModule",
+                "amount": 1
+            }],
+            "timeSteps": 300000
+        },
+        "requiredSteps": 1,
+        "modelNames": [ "StorageDeck" ],
+        "productionBoosts": [{
+            "resourceName": "concrete",
+            "amount": 3,
+        },{
+            "resourceName": "steel",
+            "amount": 3,
+        },{
+            "resourceName": "homeAppliance",
+            "amount": 2,
+        }]
+        // Technology Production Boost - plus 3 to Concrete and Steel
+    },
+    "telescope": {
+        "name": "telescope",
+        "productionDefinition": {
+            "consumables": [{
+                "resourceName": "adamantine",
+                "amount": 150
+            },{
+                "resourceName": "sciencePack4",
+                "amount": 50
+            }],
+            "producables": [{
+                "resourceName": "spaceshipModule",
+                "amount": 1
+            }],
+            "timeSteps": 300000
+        },
+        "requiredSteps": 1,
+        "modelNames": [ "Telescope" ],
+        //"bonusText": "spaceshipUpgrade_techBoostFull"
+        "productionBoosts": [{
+            "resourceName": "adamantine",
+            "amount": 5,
+        }]
+        // Technology Production Boost - plus 5 to Adamantine
+    },
+    "thermalSystems": {
+        "name": "thermalSystems",
+        "productionDefinition": {
+            "consumables": [{
+            "resourceName": "crudeOil",
+                "amount": 250
+            },{
+                "resourceName": "chemicals",
+                "amount": 250
+            },{
+                "resourceName": "methane",
+                "amount": 250
+            },{
+                "resourceName": "sciencePack1",
+                "amount": 150
+            }],
+            "producables": [{
+                "resourceName": "spaceshipModule",
+                "amount": 1
+            }],
+            "timeSteps": 300000
+        },
+        "requiredSteps": 1,
+        "modelNames": [ "ThermalSystems" ],
+        "productionBoosts": [{
+            "resourceName": "chemicals",
+            "amount": 1,
+        },{
+            "resourceName": "organicWaste",
+            "amount": 1,
+        },{
+            "resourceName": "methane",
+            "amount": 1,
+        }]
+        // Technology Production Boost - plus 1 to Methane, Water, Crude Oil and Oxygen
+    },
+    "laserCannon": {
+        "name": "laserCannon",
+        "productionDefinition": {
+            "consumables": [{
+                "resourceName": "microchip",
+                "amount": 75
+            },{
+                "resourceName": "nanotubes",
+                "amount": 75
+            },{
+                "resourceName": "sciencePack2",
+                "amount": 100
+            }], 
+            "producables": [{
+                "resourceName": "spaceshipModule",
+                "amount": 1
+            }],
+            "timeSteps": 300000
+        },
+        "requiredSteps": 1,
+        "modelNames": [  ]
+        // Unlocks Laser Cannon
+    }
+}

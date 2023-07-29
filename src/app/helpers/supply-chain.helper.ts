@@ -15,10 +15,6 @@ export function getRate(
     let factoryRate: number;
 
     switch (material) {
-        case 'Power':
-        case 'Population':
-            factoryRate = materialCost;
-            break;
         default:
             factoryRate = (60 / duration) * materialCost * (efficiency / 100);
     }

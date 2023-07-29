@@ -5,7 +5,7 @@
         [ngClass]="headerClasses" 
         (click)="toggleVisibility()">
         <i class="material-icon-lrg" [ngClass]="model.material | iconClass"></i>
-        <span>{{model.material}}</span>
+        <span>{{model.material | formatName}}</span>
     </h4>
 
     <div *ngIf="visible" class="p-2">
@@ -19,12 +19,12 @@
     
             <div class="px-1" *ngIf="model.depth !== 0">{{model.factoryCount}}</div>
         
-            <div *ngIf="model.materialFactories.length === 1" class="px-1">{{model.selectedFactory.name}}</div>
+            <div *ngIf="model.materialFactories.length === 1" class="px-1">{{model.selectedFactory.name  | formatName}}</div>
         
             <div ngbDropdown *ngIf="model.materialFactories.length > 1" class="px-1">
                 
                 <button type="button" class="btn btn-outline-primary" id="selectionDropdown"
-                    ngbDropdownToggle>{{model.selectedFactory.name}}</button>
+                    ngbDropdownToggle>{{model.selectedFactory.name | formatName}}</button>
                 <div ngbDropdownMenu aria-labelledby="selectionDropdown" class="material-drop-down">
                     <button ngbDropdownItem *ngFor="let factory of model.materialFactories"
                         (click)="model.selectedFactory = factory">{{factory.name}}</button>

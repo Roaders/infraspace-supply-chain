@@ -1,0 +1,360 @@
+{ "categories": [
+  {
+    "categoryName": "roads",
+    "buttonsType": "none",
+    "children": [
+      {
+        "categoryName": "lowTierRoads",
+        "buttonsType": "roads",
+        "children": [
+          {"itemName": "road_gravel_twoWay_twoLane"},
+          {"itemName": "road_gravel_oneWay_oneLane"},
+        ]
+      },
+      {
+        "categoryName": "midTierRoads",
+        "buttonsType": "roads",
+        "children": [
+          {"itemName": "road_concrete_twoWay_twoLane"},
+          {"itemName": "road_concrete_twoWay_fourLane"},
+          {"itemName": "road_concrete_twoWay_sixLane"},
+          {"itemName": "road_concrete_oneWay_oneLane"},
+          {"itemName": "road_concrete_oneWay_twoLane"},
+          {"itemName": "road_concrete_oneWay_threeLane"},
+        ]
+      },
+      {
+        "categoryName": "highwayRoads",
+        "buttonsType": "roads",
+        "children": [
+          {"itemName": "road_highway_twoWay_twoLane"},
+          {"itemName": "road_highway_twoWay_fourLane"},
+          {"itemName": "road_highway_twoWay_sixLane"},
+          {"itemName": "road_highway_oneWay_oneLane"},
+          {"itemName": "road_highway_oneWay_twoLane"},
+          {"itemName": "road_highway_oneWay_threeLane"},
+        ]
+      },
+      {
+        "categoryName": "superhighwayRoads",
+        "buttonsType": "roads",
+        "children": [
+          {"itemName": "road_superhighway_oneWay_oneLane"},
+          {"itemName": "road_superhighway_oneWay_twoLane"},
+          {"itemName": "road_superhighway_oneWay_threeLane"},
+        ]
+      },
+    ]
+  },
+
+  {
+    "categoryName": "rails",
+    "buttonsType": "rails",
+    "children": [
+      {"itemName": "rail_oneWay"},
+      {"itemName": "rail_oneWay_highspeed"},
+      {"itemName": "rail_oneWay_superhighspeed"},
+    ]
+  },
+
+  {
+    "categoryName": "pipes",
+    "buttonsType": "pipes",
+    "children": [
+      {"itemName": "pipe_oxygen"},
+      {"itemName": "pipe_water"},
+      {"itemName": "pipe_crudeOil"},
+      {"itemName": "pipe_methane"},
+    ]
+  },
+
+  {
+    "categoryName": "fundamentals",
+    "buttonsType": "buildings",
+    "children": [
+      {"itemName": "habitatLevel1"},
+      {"itemName": "storehouseSmall"},
+      {"itemName": "storehouse"},
+      {"itemName": "spacePort"},
+    ]
+  },
+  
+  {
+    "categoryName": "mines",
+    "buttonsType": "buildings",
+    "children": [
+      {
+        "categoryName": "smallMines",
+        "buttonsType": "buildings",
+        "children": [
+          {"itemName": "sandMine"},
+          {"itemName": "sulfurMine"},
+          {"itemName": "crudeOilExtractor"},
+          {"itemName": "ironMine"},
+          {"itemName": "copperMine"},
+          {"itemName": "aluminiumMine"},
+          {"itemName": "uraniumMine"},
+          {"itemName": "iridiumMine"},
+        ]
+      },
+      {
+        "categoryName": "largeMines",
+        "buttonsType": "buildings",
+        "children": [
+          {"itemName": "largeSandMine"},
+          {"itemName": "largeSulfurMine"},
+          {"itemName": "largeCrudeOilExtractor"},
+          {"itemName": "largeIronMine"},
+          {"itemName": "largeCopperMine"},
+          {"itemName": "largeAluminiumMine"},
+          {"itemName": "largeUraniumMine"},
+          {"itemName": "largeIridiumMine"},
+        ]
+      },
+      {"itemName": "monumentDrill_Stage0"},
+    ]
+  },
+
+  {
+    "categoryName": "industry",
+    "buttonsType": "buildings",
+    "children": [
+      {"itemName": "concreteFactory"},
+      {"itemName": "steelMill"},
+      {
+        "categoryName": "lowTechIndustry",
+        "buttonsType": "buildings",
+        "children": [
+          {"itemName": "electronicsFactory"},
+          {"itemName": "plasticFactory"},
+          {"itemName": "microchipFactory"},
+          {"itemName": "motorFactory"},
+          {"itemName": "copperMill"},
+          {"itemName": "homeAppliancesFactory"},
+          {"itemName": "chemicalsLab"},
+          {"itemName": "stemCellLab"},
+        ]
+      },
+      {
+        "categoryName": "midTechIndustry",
+        "buttonsType": "buildings",
+        "children": [
+          {"itemName": "nanotubesFactory"},
+          {"itemName": "neuralProcessorFactory"},
+          {"itemName": "sensorFactory"},
+          {"itemName": "heatExchangerFactory"},
+          {"itemName": "computerFactory"},
+          {"itemName": "homeRobotFactory"},
+          {"itemName": "industrialRobotFactory"},  
+          {"itemName": "industrialChemicalsLab"},
+        ]
+      },
+      {
+        "categoryName": "highTechIndustry",
+        "buttonsType": "buildings",
+        "children": [ 
+          {"itemName": "reinforcedIridiumFactory"},
+          {"itemName": "highTechWorkshop"},
+          {"itemName": "holoDisplayFactory"},
+          {"itemName": "radiationCoreFactory"},
+          {"itemName": "enrichedUraniumFactory"},
+          {"itemName": "vrEdutainmentFactory"},
+          {"itemName": "superconductorFactory"},
+          {"itemName": "aiControlUnitFactory"},
+        ]
+      },
+    ]
+  },
+
+  {
+    "categoryName": "gasAndLiquids",
+    "buttonsType": "buildings",
+    "children": [
+      {
+        "categoryName": "pipes",
+        "buttonsType": "pipes",
+        "children": [
+          {"itemName": "pipe_oxygen"},
+          {"itemName": "pipe_water"},
+          {"itemName": "pipe_crudeOil"},
+          {"itemName": "pipe_methane"},
+        ]
+      },
+      {
+        "categoryName": "tanks",
+        "buttonsType": "buildings",
+        "children": [
+          {"itemName": "oxygenTank"},
+          {"itemName": "crudeOilTank"},
+          {"itemName": "waterTank"},
+          {"itemName": "methaneTank"},
+        ]
+      },
+      {"itemName": "airProcessor"},
+      {"itemName": "oxygenProcessor"},
+      {"itemName": "carbonProcessor"},
+      {"itemName": "waterAirFilter"},
+      {"itemName": "waterWellHydraulic"},
+      {"itemName": "waterDistillery"},
+      {"itemName": "methaneDrill"},
+      {"itemName": "methaneFermentationPlant"},
+    ]
+  },
+
+  {
+    "categoryName": "terraforming",
+    "buttonsType": "buildings",
+    "children": [
+      {"itemName": "filteringMeshFactory"},
+      {"itemName": "advancedFilteringMeshFactory"},
+      {"itemName": "superconductingCoilFactory"},
+      {"itemName": "dustParticleFilter"},
+      {"itemName": "fertilizerDroneHub"},
+      {"itemName": "groundAcidityRegulator"},
+      {"itemName": "ammoniaExtractor"},
+      {"itemName": "magneticFieldGenerator_Stage0"},
+    ]
+  },
+
+  {
+    "categoryName": "transport",
+    "buttonsType": "buildings",
+    "children": [
+      {"itemName": "trainstation_1R"},
+      {"itemName": "trainstation_2R"},
+      {"itemName": "trainstation_4R"},
+      {"itemName": "trainstation_6R"},
+      {"itemName": "trainstation_8R"},
+      {"itemName": "gondolaStation"},
+      {"itemName": "spaceShipConstructionFacility"},
+    ]
+  },
+
+  {
+    "categoryName": "miscellaneous",
+    "buttonsType": "buildings",
+    "children": [
+      {"itemName": "recyclingCenter"},
+      {"itemName": "soilEnrichmentFacility"},
+      {"itemName": "targetingStation"},
+    ]
+  },
+
+  {
+    "categoryName": "science",
+    "buttonsType": "buildings",
+    "children": [
+      {"itemName": "sciencePack1Factory"},
+      {"itemName": "sciencePack2Factory"},
+      {"itemName": "sciencePack3Factory"},
+      {"itemName": "sciencePack4Factory"},
+      {"itemName": "researchLab"},
+    ]
+  },
+
+  {
+    "categoryName": "food",
+    "buttonsType": "buildings",
+    "children": [
+      {"itemName": "basicFarm"},
+      {"itemName": "fertilizerFactory"},
+      {"itemName": "vegetableFarm"},
+      {"itemName": "meatLab"},
+      {"itemName": "foodFactory"},
+    ]
+  },
+
+  {
+    "categoryName": "services",
+    "buttonsType": "buildings",
+    "children": [
+      {
+        "categoryName": "parks",
+        "buttonsType": "buildings",
+        "children": [
+          {"itemName": "park"},
+          {"itemName": "decorativePark1"},
+          {"itemName": "decorativePark2"},
+          {"itemName": "decorativePark3"},
+          {"itemName": "decorativePark4"},
+          {"itemName": "decorativePark5"},
+        ]
+      },
+      {
+        "categoryName": "entertainment",
+        "buttonsType": "buildings",
+        "children": [
+          {"itemName": "arena"},
+          {"itemName": "holoCinema"},
+        ]
+      },
+      {"itemName": "school"},
+    ]
+  },
+
+  {
+    "categoryName": "decoration",
+    "buttonsType": "buildings",
+    "children": [
+      {
+        "categoryName": "sights",
+        "buttonsType": "buildings",
+        "children": [
+          {"itemName": "parkingLot1"},
+          {"itemName": "statue1"},
+          {"itemName": "statue2"},
+          {"itemName": "statue3"},
+          {"itemName": "ffEasterEgg"},
+          {"itemName": "panoramicWheel"},
+          {"itemName": "eiffelTower"},
+          {"itemName": "crashedUfo"},
+          {"itemName": "pyramid"},
+        ]
+      },
+      {
+        "categoryName": "signs",
+        "buttonsType": "buildings",
+        "children": [
+          {"itemName": "signStanding"},
+          {"itemName": "signLaying"},
+        ]
+      },
+      {
+        "categoryName": "fences",
+        "buttonsType": "buildings",
+        "children": [
+          {"itemName": "fence1"},
+          {"itemName": "fence2"},
+          {"itemName": "fence3"},
+        ]
+      },
+      {
+        "categoryName": "pixelBuildings",
+        "buttonsType": "buildings",
+        "children": [
+          {"itemName": "pixelBuildingSquare"},
+          {"itemName": "pixelBuildingCorner"},
+          {"itemName": "pixelBuildingRound"},
+          {"itemName": "pixelBuildingRoundCorner"},
+          {"itemName": "pixelBuildingInvertCorner"},
+        ]
+      },
+    ]
+  },
+
+  
+  {
+    "categoryName": "power",
+    "buttonsType": "buildings",
+    "children": [
+      {"itemName": "powerPole"},
+      {"itemName": "powerSubstation"},
+      {"itemName": "windTurbine"},
+      {"itemName": "solarPowerPlant"},
+      {"itemName": "solarPowerPlant_Variation"},
+      {"itemName": "methanePowerPlant"},
+      {"itemName": "nuclearPowerPlant"},
+      {"itemName": "fastNeutronReactor"},
+    ]
+  },
+]}

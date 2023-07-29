@@ -11,7 +11,7 @@
 
             <div class="factory-list ps-3">
                 <div class="p-1 d-flex justify-content-between align-items-center" *ngFor="let factory of filteredFactories">
-                    <span>{{factory.name}}</span>
+                    <span>{{factory.name | formatName}}</span>
                     
                     <input type="number" class="form-control" [value]="helper.getEfficiency(factory)" (change)="updateEfficiency($event, factory)" min="1" >
                 </div>
