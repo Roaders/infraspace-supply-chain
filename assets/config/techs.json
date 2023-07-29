@@ -1,0 +1,531 @@
+{
+		
+// Tier 0
+//*******
+
+	"farming": {
+		"cost": 10,
+		"predecessors": [],
+		"locationX": 0,
+		"locationY": 2.5,
+		"requiredResources": ["sciencePack1"]
+	},
+
+// Tier I
+// *******
+
+	"electronics": {
+		"cost": 40,
+		"predecessors": ["farming"],
+		"locationX": 1,
+		"locationY": 1.5,
+		"requiredResources": ["sciencePack1"]
+	},
+	"steelMaking": {
+		"cost": 20,
+		"predecessors": ["farming"],
+		"locationX": 1,
+		"locationY": 3.5,
+		"requiredResources": ["sciencePack1"]
+	},
+	"oneWayRoads": {
+		"cost": 15,
+		"predecessors": [],
+		"locationX": 1,
+		"locationY": 5.5,
+		"requiredResources": ["sciencePack2"],
+		"showUnlockedItems": false
+	},
+
+
+// Tier II
+//*********
+	
+	"pipes": {
+		"cost": 40,
+		"predecessors": [],
+		"locationX": 2,
+		"locationY": 0,
+		"requiredResources": ["sciencePack2"]
+	},
+	/*"homeAppliances": {
+		"cost": 65,
+		"predecessors": ["electronics"],
+		"locationX": 2,
+		"locationY": 1,
+		"requiredResources": ["sciencePack1"]
+	},*/
+	"aluminiumMining": {
+		"cost": 40,
+		"predecessors": ["electronics"],
+		"locationX": 2,
+		"locationY": 2,
+		"requiredResources": ["sciencePack1"]
+	},
+	"solarPanels": {
+		"cost": 65,
+		"predecessors": ["steelMaking"],
+		"locationX": 2,
+		"locationY": 3,
+		"requiredResources": ["sciencePack2"]
+	},
+	"improvedWindTurbineBlades": {
+		"cost": 25,
+		"predecessors": ["steelMaking"],
+		"locationX": 2,
+		"locationY": 4,
+		"requiredResources": ["sciencePack2"]
+	},
+	"concreteRoads": {
+		"cost": 40,
+		"predecessors": [],
+		"locationX": 2,
+		"locationY": 5.5,
+		"requiredResources": ["sciencePack2"],
+		"showUnlockedItems": false
+	},
+	"fence": {
+		"cost": 50,
+		"predecessors": [],
+		"locationX": 3,
+		"locationY": -2,
+		"requiredResources": ["sciencePack1"],
+		"showUnlockedItems": true
+	},
+	
+
+// Tier III
+//*********
+	
+	"methane": {
+		"cost": 50,
+		"predecessors": ["pipes"],
+		"locationX": 3,
+		"locationY": -0.5,
+		"requiredResources": ["sciencePack2"]
+	},
+	"tanks": {
+		"cost": 50,
+		"predecessors": ["pipes"],
+		"locationX": 3,
+		"locationY": 0.5,
+		"requiredResources": ["sciencePack2"]
+	},
+	"computers": {
+		"cost": 75,
+		"predecessors": ["electronics", "aluminiumMining"],
+		"locationX": 3,
+		"locationY": 1.5,
+		"requiredResources": ["sciencePack1"]
+	},
+	"science2": {
+		"cost": 50,
+		"predecessors": ["aluminiumMining"],
+		"locationX": 3,
+		"locationY": 2.5,
+		"requiredResources": ["sciencePack1"]
+	},
+	"powerSubstation": {
+		"cost": 100,
+		"predecessors": ["solarPanels"],
+		"locationX": 3,
+		"locationY": 3.5,
+		"requiredResources": ["sciencePack2"]
+	},
+	"spaceshipConstruction": {
+		"cost": 150,
+		"predecessors": [],
+		"locationX": 3,
+		"locationY": 4.5,
+		"requiredResources": ["sciencePack2"]
+	},
+	"fourLaneRoads": {
+		"cost": 65,
+		"predecessors": ["concreteRoads"],
+		"locationX": 3,
+		"locationY": 5.5,
+		"requiredResources": ["sciencePack2"],
+		"showUnlockedItems": false
+	},
+	"cargoGondolas": {
+		"cost": 100,
+		"predecessors": ["concreteRoads"],
+		"locationX": 3,
+		"locationY": 6.5,
+		"requiredResources": ["sciencePack2"],
+		"showUnlockedItems": true
+	},
+	"pixelBuilding": {
+		"cost": 50,
+		"predecessors": [],
+		"locationX": 4,
+		"locationY": -2,
+		"requiredResources": ["sciencePack2"],
+	},
+
+	
+// Tier IV
+//********
+
+	"methanePowerPlants": {
+		"cost": 100,
+		"predecessors": ["methane"],
+		"locationX": 4,
+		"locationY": -1,
+		"requiredResources": ["sciencePack2"]
+	},
+	"parks": {
+		"cost": 100,
+		"predecessors": [],
+		"locationX": 4,
+		"locationY": 0,
+		"requiredResources": ["sciencePack1"]
+	},
+	"groundWaterExtraction": {
+		"cost": 150,
+		"predecessors": [],
+		"locationX": 4,
+		"locationY": 2,
+		"requiredResources": ["sciencePack2"]
+	},
+	"motors": {
+		"cost": 75,
+		"predecessors": [],
+		"locationX": 4,
+		"locationY": 4,
+		"requiredResources": ["sciencePack2"]
+	},
+	"highways": {
+		"cost": 100,
+		"predecessors": ["fourLaneRoads"],
+		"locationX": 4,
+		"locationY": 5,
+		"requiredResources": ["sciencePack2"],
+		"showUnlockedItems": false
+	},
+	"trains": {
+		"cost": 200,
+		"predecessors": ["fourLaneRoads"],
+		"locationX": 4,
+		"locationY": 6,
+		"requiredResources": ["sciencePack2"],
+		"showUnlockedItems": true
+	},
+	/*"decorativeParks": {
+		"cost": 100,
+		"predecessors": [],
+		"locationX": 4,
+		"locationY": -2,
+		"requiredResources": ["sciencePack2"],
+	},*/
+
+
+// Tier V
+//*******
+
+	"foodProcessing": {
+		"cost": 75,
+		"predecessors": ["parks"],
+		"locationX": 5,
+		"locationY": 0,
+		"requiredResources": ["sciencePack2"]
+	},
+	"particleFiltering": {
+		"cost": 125,
+		"predecessors": [],
+		"locationX": 5,
+		"locationY": 1,
+		"requiredResources": ["sciencePack3"]
+	},
+	"nanotubes": {
+		"cost": 100,
+		"predecessors": [],
+		"locationX": 5,
+		"locationY": 2,
+		"requiredResources": ["sciencePack2"]
+	},
+	"selfCleaningSolarPanels": {
+		"cost": 200,
+		"predecessors": ["solarPanels"],
+		"locationX": 5,
+		"locationY": 3,
+		"requiredResources": ["sciencePack2"]
+	},
+	"largeMines": {
+		"cost": 150,
+		"predecessors": ["motors"],
+		"locationX": 5,
+		"locationY": 4,
+		"requiredResources": ["sciencePack2"]
+	},
+	"sixLaneRoads": {
+		"cost": 100,
+		"predecessors": ["fourLaneRoads"],
+		"locationX": 5,
+		"locationY": 5.5,
+		"requiredResources": ["sciencePack2"],
+		"showUnlockedItems": false
+	},
+	"statue": {
+		"cost": 125,
+		"predecessors": [],
+		"locationX": 5,
+		"locationY": -2,
+		"requiredResources": ["sciencePack2"],
+	},
+
+
+// Tier VI
+//********
+	
+	"methaneFermentation": {
+		"cost": 250,
+		"predecessors": ["foodProcessing", "methane"],
+		"locationX": 6,
+		"locationY": -0.5,
+		"requiredResources": ["sciencePack2"]
+	},
+	"science3": {
+		"cost": 200,
+		"predecessors": ["foodProcessing"],
+		"locationX": 6,
+		"locationY": 0.5,
+		"requiredResources": ["sciencePack2"]
+	},
+	"neuralProcessors": {
+		"cost": 100,
+		"predecessors": ["nanotubes", "computers"],
+		"locationX": 6,
+		"locationY": 1.5,
+		"requiredResources": ["sciencePack2"]
+	},
+	"culture": {
+		"cost": 150,
+		"predecessors": [],
+		"locationX": 6,
+		"locationY": 2.5,
+		"requiredResources": ["sciencePack2"]
+	},
+	"uraniumMining": {
+		"cost": 75,
+		"predecessors": [],
+		"locationX": 6,
+		"locationY": 3.5,
+		"requiredResources": ["sciencePack3"]
+	},
+	"superhighways": {
+		"cost": 250,
+		"predecessors": ["sixLaneRoads", "highways"],
+		"locationX": 6,
+		"locationY": 5,
+		"requiredResources": ["sciencePack3"],
+		"showUnlockedItems": false
+	},
+	"sightSeeing1": {
+		"cost": 150,
+		"predecessors": [],
+		"locationX": 6,
+		"locationY": -2,
+		"requiredResources": ["sciencePack3"],
+	},
+
+
+// Tier VII
+//*********
+
+	"homeRobots": {
+		"cost": 150,
+		"predecessors": ["neuralProcessors"],
+		"locationX": 7,
+		"locationY": 1,
+		"requiredResources": ["sciencePack2"]
+	},
+	"industrialRobots": {
+		"cost": 100,
+		"predecessors": ["neuralProcessors"],
+		"locationX": 7,
+		"locationY": 2,
+		"requiredResources": ["sciencePack3"]
+	},
+	"nuclearPower": {
+		"cost": 150,
+		"predecessors": ["uraniumMining"],
+		"locationX": 7,
+		"locationY": 3.5,
+		"requiredResources": ["sciencePack3"]
+	},
+	"recycling": {
+		"cost": 125,
+		"predecessors": [],
+		"locationX": 7,
+		"locationY": 4.5,
+		"requiredResources": ["sciencePack3"]
+	},
+	"highSpeedRail": {
+		"cost": 100,
+		"predecessors": ["trains"],
+		"locationX": 7,
+		"locationY": 6,
+		"requiredResources": ["sciencePack3"],
+		"showUnlockedItems": true
+	},
+	"sightSeeing2": {
+		"cost": 150,
+		"predecessors": [],
+		"locationX": 7,
+		"locationY": -2,
+		"requiredResources": ["sciencePack3"],
+	},
+
+
+
+// Tier VIII
+//**********
+
+	
+	"schools": {
+		"cost": 200,
+		"predecessors": [],
+		"locationX": 8,
+		"locationY": 0,
+		"requiredResources": ["sciencePack3"]
+	},
+	"iridiumMining": {
+		"cost": 100,
+		"predecessors": [],
+		"locationX": 8,
+		"locationY": 2.0,
+		"requiredResources": ["sciencePack3"]
+	},
+	"fertilizer": {
+		"cost": 100,
+		"predecessors": [],
+		"locationX": 8,
+		"locationY": 3.5,
+		"requiredResources": ["sciencePack3"]
+	},
+	"heatExchanger": {
+		"cost": 125,
+		"predecessors": [],
+		"locationX": 8,
+		"locationY": 4.5,
+		"requiredResources": ["sciencePack3"]
+	},
+
+// Tier IX
+//********
+
+	
+	"holoDisplays": {
+		"cost": 150,
+		"predecessors": ["iridiumMining"],
+		"locationX": 9,
+		"locationY": 1,
+		"requiredResources": ["sciencePack3"]
+	},
+	"aiControlUnits": {
+		"cost":200,
+		"predecessors": ["iridiumMining"],
+		"locationX": 9,
+		"locationY": 2,
+		"requiredResources": ["sciencePack3"]
+	},
+	"highTechWorkshop": {
+		"cost": 250,
+		"predecessors": ["iridiumMining"],
+		"locationX": 9,
+		"locationY": 3,
+		"requiredResources": ["sciencePack3"]
+	},
+
+
+
+// Tier X
+//*******
+	
+	"science4": {
+		"cost": 350,
+		"predecessors": ["aiControlUnits"],
+		"locationX": 10,
+		"locationY": 2,
+		"requiredResources": ["sciencePack3"]
+	},
+
+	"superconductor": {
+		"cost": 100,
+		"predecessors": [],
+		"locationX": 10,
+		"locationY": 1,
+		"requiredResources": ["sciencePack4"]
+	},
+
+	"lightningRail": {
+		"cost": 150,
+		"predecessors": ["highSpeedRail"],
+		"locationX": 10,
+		"locationY": 6,
+		"requiredResources": ["sciencePack4"],
+		"showUnlockedItems": true
+	},
+
+
+// Tier XI
+//********
+
+	"adamantineMining": {
+		"cost": 250,
+		"predecessors": ["science4", "superconductor"],
+		"locationX": 11,
+		"locationY": 1.5,
+		"requiredResources": ["sciencePack4"]
+	},
+
+	"fastNeutronReactor": {
+		"cost": 200,
+		"predecessors": ["nuclearPower"],
+		"locationX": 11,
+		"locationY": 3.5,
+		"requiredResources": ["sciencePack4"]
+	},
+
+
+
+// Tier XII
+//********
+    	"terraforming": {
+		"cost": 150,
+		"predecessors": ["adamantineMining"],
+		"locationX": 12,
+		"locationY": 1.5,
+		"requiredResources": ["sciencePack4"]
+	},
+		"droneFertilization": {
+		"cost": 150,
+		"predecessors": ["adamantineMining"],
+		"locationX": 12,
+		"locationY": 2.5,
+		"requiredResources": ["sciencePack4"]
+	},
+	"groundAcidityRegulation": {
+		"cost": 250,
+		"predecessors": ["terraforming"],
+		"locationX": 13,
+		"locationY": 1.5,
+		"requiredResources": ["sciencePack4"]
+	},
+	"ammoniaExtraction": {
+		"cost": 350,
+		"predecessors": ["groundAcidityRegulation"],
+		"locationX": 14,
+		"locationY": 1,
+		"requiredResources": ["sciencePack4"]
+	},
+	"magneticFieldGeneration": {
+		"cost": 500,
+		"predecessors": ["groundAcidityRegulation"],
+		"locationX": 14,
+		"locationY": 2,
+		"requiredResources": ["sciencePack4"]
+	},
+
+}
