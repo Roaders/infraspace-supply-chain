@@ -2,14 +2,14 @@ import { FactoryLookup, IFactory, Material, Materials } from '../contracts';
 import { buildings as buildingsImport } from './buildings';
 import { gameConfig } from './gameConfig';
 
-const residenceTypes: (IResidence | undefined)[] = [
+const residenceNames: (string | undefined)[] = [
     undefined, // in game config index 0 is empty
-    { name: 'Basic Habitat', capacity: 8 },
-    { name: 'Decent Habitat', capacity: 10 },
-    { name: 'Nice Habitat', capacity: 12 },
-    { name: 'Residential Building', capacity: 14 },
-    { name: 'Residential Highrise', capacity: 16 },
-    { name: 'Luxury Residential Highrise', capacity: 18 },
+    'Basic Habitat',
+    'Decent Habitat',
+    'Nice Habitat',
+    'Residential Building',
+    'Residential Highrise',
+    'Luxury Residential Highrise',
 ];
 
 interface IResourceCount {
@@ -33,14 +33,17 @@ interface IConfigFactory {
     };
 }
 
+interface IConfigHabitat {
+    productionLogic: {
+        type: 'habitat';
+        habitatLevel: number;
+        maxInhabitants: number;
+    };
+}
+
 interface IResourceFactory {
     resourceName: Material;
     consumptionFactor: number;
-}
-
-interface IResidence {
-    name: string;
-    capacity: number;
 }
 
 const buildings: unknown[] = Object.entries(buildingsImport).map(([name, building]) => ({
@@ -57,9 +60,14 @@ function buildLookup(): FactoryLookup {
 }
 
 function parseResidencies(factories: FactoryLookup): [IFactory<'citizen'>, ...IFactory<'citizen'>[]] | undefined {
-    const residences = residenceTypes
-        .map((residence, index) =>
-            mapResidence(residence, gameConfig.habitat.requiredResources[index] as IResourceFactory[], factories)
+    const residences = residenceNames
+        .map((name, index) =>
+            mapResidence(
+                name,
+                gameConfig.habitat.requiredResources[index] as IResourceFactory[],
+                factories,
+                findConfigResidence(index)
+            )
         )
         .filter(isDefined);
 
@@ -72,12 +80,17 @@ function parseResidencies(factories: FactoryLookup): [IFactory<'citizen'>, ...IF
     return undefined;
 }
 
+function findConfigResidence(level: number): IConfigHabitat | undefined {
+    return buildings.filter(isConfigHabitat).find((residence) => residence.productionLogic.habitatLevel === level);
+}
+
 function mapResidence(
-    residence: IResidence | undefined,
+    name: string | undefined,
     resources: IResourceFactory[],
-    factories: FactoryLookup
+    factories: FactoryLookup,
+    configHabitat?: IConfigHabitat
 ): IFactory<'citizen'> | undefined {
-    if (residence == null) {
+    if (name == null || configHabitat == null) {
         return undefined;
     }
 
@@ -91,8 +104,8 @@ function mapResidence(
     return {
         buildCost: { concrete: 10 },
         duration: 60,
-        name: residence.name,
-        output: { citizen: residence.capacity },
+        name,
+        output: { citizen: configHabitat.productionLogic.maxInhabitants },
         power: 0,
         workers: 0,
         input,
@@ -170,6 +183,13 @@ function isConfigFactory(value: unknown): value is IConfigFactory {
 
     return factory.productionLogic?.type === 'factory' && Array.isArray(factory.costs);
 }
+
+function isConfigHabitat(value: unknown): value is IConfigHabitat {
+    const factory = value as IConfigHabitat;
+
+    return factory.productionLogic?.type === 'habitat' && typeof factory.productionLogic.maxInhabitants === 'number';
+}
+
 function isDefined<T>(value: T | null | undefined): value is T {
     return value != null;
 }
