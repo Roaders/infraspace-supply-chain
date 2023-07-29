@@ -1,69 +1,12 @@
 import { Material } from '../contracts';
 
-type Icon =
-    | 'adamantine'
-    | 'aiControlUnit'
-    | 'aluminium'
-    | 'basicFarm'
-    | 'car'
-    | 'carbon'
-    | 'citizenMovingIn'
-    | 'citizenMovingOut'
-    | 'computer'
-    | 'concrete'
-    | 'copperOre'
-    | 'culturePoints'
-    | 'debug'
-    | 'electronics'
-    | 'fertilizer'
-    | 'ftlPortal'
-    | 'goodFood'
-    | 'habitant'
-    | 'highTechTool'
-    | 'holoDisplay'
-    | 'homeAppliance'
-    | 'homeRobot'
-    | 'industrialRobot'
-    | 'iridium'
-    | 'iridiumAlloy'
-    | 'iridiumPropellant'
-    | 'ironOre'
-    | 'meat'
-    | 'methane'
-    | 'microchip'
-    | 'motor'
-    | 'nanoTubes'
-    | 'neuralProcessor'
-    | 'organicWaste'
-    | 'oxygen'
-    | 'parkPoints'
-    | 'power'
-    | 'radiationCore'
-    | 'research'
-    | 'sand'
-    | 'schoolPoints'
-    | 'sciencePack1'
-    | 'sciencePack1Factory'
-    | 'sciencePack2'
-    | 'sciencePack2Factory'
-    | 'sciencePack3'
-    | 'sciencePack3Factory'
-    | 'sciencePack4'
-    | 'sciencePack4Factory'
-    | 'spaceShip'
-    | 'spaceshipModule'
-    | 'steel'
-    | 'storehous'
-    | 'sulfur'
-    | 'survivalFood'
-    | 'uranium'
-    | 'vegetables'
-    | 'vrEdutainment'
-    | 'water';
-
-export function mapMaterialToIcon(material: Material): Icon {
+export function mapMaterialToIcon(material: Material): string {
     switch (material) {
+        case 'citizen':
+            return 'citizenMovingOut';
+        case 'nanotubes':
+            return 'nanoTubes';
         default:
-            return material as any; // TODO
+            return material;
     }
 }
