@@ -15,6 +15,7 @@ const upperCase = /[A-Z0-9]/g;
 @Pipe({ name: 'formatName' })
 export class FormatNamePipe implements PipeTransform {
     transform(name: string) {
+        name = name.replace(/_/, '');
         return `${name.charAt(0).toUpperCase()}${name.substring(1).replace(upperCase, (existing) => ` ${existing}`)}`;
     }
 }

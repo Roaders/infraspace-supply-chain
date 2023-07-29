@@ -21,7 +21,7 @@
         
             <div *ngIf="model.materialFactories.length === 1" class="px-1">{{model.selectedFactory.name  | formatName}}</div>
         
-            <div ngbDropdown *ngIf="model.materialFactories.length > 1" class="px-1">
+            <div ngbDropdown  container="body" *ngIf="model.materialFactories.length > 1" class="px-1">
                 
                 <button type="button" class="btn btn-outline-primary" id="selectionDropdown"
                     ngbDropdownToggle>{{model.selectedFactory.name | formatName}}</button>

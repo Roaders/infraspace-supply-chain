@@ -72,6 +72,8 @@ export class MaterialProductionComponent {
 
     public get materialRate(): string {
         switch (this.model.material) {
+            case 'power':
+                return '';
             default:
                 return '/min';
         }

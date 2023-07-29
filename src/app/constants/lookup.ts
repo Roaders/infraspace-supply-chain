@@ -15,6 +15,7 @@ interface IConfigFactory {
             consumables: IResourceCount[];
             producables: IResourceCount[];
             timeSteps: number;
+            powerOutput?: number;
             powerNeeded: number;
             maxWorkers: number;
         };
@@ -43,10 +44,12 @@ function buildFactoryLookup(): FactoryLookup {
 function findMaterialFactories<M extends Material>(material: M): [IFactory<M>, ...IFactory<M>[]] | undefined {
     const materialFactories = buildings
         .filter(isConfigFactory)
-        .filter((factory) =>
-            factory.productionLogic.productionDefinition.producables.some(
-                (resource) => resource.resourceName === material
-            )
+        .filter(
+            (factory) =>
+                factory.productionLogic.productionDefinition.producables.some(
+                    (resource) => resource.resourceName === material
+                ) ||
+                (material === 'power' && factory.productionLogic.productionDefinition.powerOutput != null)
         );
 
     const first = materialFactories.shift();
@@ -76,6 +79,10 @@ function mapFactory<M extends Material>(building: IConfigFactory): IFactory<M> {
                   {}
               )
             : undefined;
+
+    if (production.powerOutput != null) {
+        output.power = production.powerOutput;
+    }
 
     return {
         name: building.name,
