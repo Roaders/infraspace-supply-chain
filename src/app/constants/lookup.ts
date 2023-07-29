@@ -1,5 +1,16 @@
 import { FactoryLookup, IFactory, Material, Materials } from '../contracts';
 import { buildings as buildingsImport } from './buildings';
+import { gameConfig } from './gameConfig';
+
+const residenceTypes: (IResidence | undefined)[] = [
+    undefined, // in game config index 0 is empty
+    { name: 'Basic Habitat', capacity: 8 },
+    { name: 'Decent Habitat', capacity: 10 },
+    { name: 'Nice Habitat', capacity: 12 },
+    { name: 'Residential Building', capacity: 14 },
+    { name: 'Residential Highrise', capacity: 16 },
+    { name: 'Luxury Residential Highrise', capacity: 18 },
+];
 
 interface IResourceCount {
     resourceName: Material;
@@ -22,14 +33,73 @@ interface IConfigFactory {
     };
 }
 
+interface IResourceFactory {
+    resourceName: Material;
+    consumptionFactor: number;
+}
+
+interface IResidence {
+    name: string;
+    capacity: number;
+}
+
 const buildings: unknown[] = Object.entries(buildingsImport).map(([name, building]) => ({
     name,
     ...building,
 }));
 
-export const factoryLookup: FactoryLookup = buildFactoryLookup();
+export const factoryLookup: FactoryLookup = buildLookup();
 
-function buildFactoryLookup(): FactoryLookup {
+function buildLookup(): FactoryLookup {
+    const factories = parseFactories();
+
+    return { ...factories, citizen: parseResidencies(factories) };
+}
+
+function parseResidencies(factories: FactoryLookup): [IFactory<'citizen'>, ...IFactory<'citizen'>[]] | undefined {
+    const residences = residenceTypes
+        .map((residence, index) =>
+            mapResidence(residence, gameConfig.habitat.requiredResources[index] as IResourceFactory[], factories)
+        )
+        .filter(isDefined);
+
+    const first = residences.shift();
+
+    if (first != null) {
+        return [first, ...residences];
+    }
+
+    return undefined;
+}
+
+function mapResidence(
+    residence: IResidence | undefined,
+    resources: IResourceFactory[],
+    factories: FactoryLookup
+): IFactory<'citizen'> | undefined {
+    if (residence == null) {
+        return undefined;
+    }
+
+    const input = resources
+        .filter((resource) => factories[resource.resourceName] != null)
+        .reduce<Partial<Record<Material, number>>>(
+            (lookup, resource) => ({ ...lookup, [resource.resourceName]: resource.consumptionFactor }),
+            {}
+        );
+
+    return {
+        buildCost: { concrete: 10 },
+        duration: 60,
+        name: residence.name,
+        output: { citizen: residence.capacity },
+        power: 0,
+        workers: 0,
+        input,
+    };
+}
+
+function parseFactories(): FactoryLookup {
     return Materials.reduce<FactoryLookup>((lookup, material) => {
         const factories = findMaterialFactories(material);
 
@@ -99,4 +169,7 @@ function isConfigFactory(value: unknown): value is IConfigFactory {
     const factory = value as IConfigFactory;
 
     return factory.productionLogic?.type === 'factory' && Array.isArray(factory.costs);
+}
+function isDefined<T>(value: T | null | undefined): value is T {
+    return value != null;
 }

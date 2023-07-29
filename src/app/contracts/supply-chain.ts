@@ -1,8 +1,8 @@
 import resources from '../../assets/config/resources.json';
 
-export type Material = keyof typeof resources;
+export type Material = keyof typeof resources | 'citizen';
 
-export const Materials = Object.keys(resources) as Material[];
+export const Materials = [...Object.keys(resources), 'citizen'] as Material[];
 
 export interface IFactory<T extends Material = Material> {
     name: string;

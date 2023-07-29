@@ -21,6 +21,11 @@ export class MaterialProductionModel<T extends Material = Material> {
         private helper: EfficiencyHelper
     ) {
         this._materialFactories = getFactories(material);
+
+        if (this._materialFactories == null) {
+            throw new Error(`Could not locate factories for material '${material}'`);
+        }
+
         this._selectedFactory = this._materialFactories[0];
 
         this.updateChildren();
