@@ -3,20 +3,30 @@
 
     <div *ngIf="visible" class="list-container">
         <ul class="d-flex flex-wrap">
-            <li *ngFor="let material of buildMaterials"  class="d-flex list-item justify-content-between p-1">
-                <div>{{material | formatName}}:</div>
+            <li *ngFor="let material of buildMaterials"  class="d-flex list-item justify-content-between p-1 align-items-center">
+                <div class="d-flex align-items-center">
+                    <i class="material-icon-lrg" [ngClass]="material | iconClass"></i>
+                    <span>{{material | formatName}}:</span>
+                </div>
                 <div>{{getBuildMaterialCost(material) | number: '1.0-1'}}</div>
             </li>
             
-            <li class="d-flex list-item justify-content-between p-1">
-                <div>Power:</div>
+            <li class="d-flex list-item justify-content-between p-1 align-items-center">
+                <div class="d-flex align-items-center">
+                    <i class="material-icon-lrg power"></i>
+                    <span>Power:</span>
+                </div>
                 <div>{{totalPower | number: '1.0-1'}}</div>
             </li>
-            
-            <li class="d-flex list-item justify-content-between p-1">
-                <div>Workers:</div>
+
+            <li class="d-flex list-item justify-content-between p-1 align-items-center">
+                <div class="d-flex align-items-center">
+                    <i class="material-icon-lrg citizenMovingIn"></i>
+                    <span>Workers:</span>
+                </div>
                 <div>{{totalWorkers | number: '1.0-1'}}</div>
             </li>
+            
         </ul>
 
         <ul class="d-flex flex-wrap">
