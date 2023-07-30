@@ -19,7 +19,7 @@ interface IResourceCount {
 
 interface IConfigFactory {
     name: string;
-    costs: IResourceCount[];
+    costs?: IResourceCount[];
     productionLogic: {
         type: 'factory';
         productionDefinition: {
@@ -50,6 +50,8 @@ const buildings: unknown[] = Object.entries(buildingsImport).map(([name, buildin
     name,
     ...building,
 }));
+
+const factories = buildings.filter(isConfigFactory);
 
 export const factoryLookup: FactoryLookup = buildLookup();
 
@@ -125,15 +127,13 @@ function parseFactories(): FactoryLookup {
 }
 
 function findMaterialFactories<M extends Material>(material: M): [IFactory<M>, ...IFactory<M>[]] | undefined {
-    const materialFactories = buildings
-        .filter(isConfigFactory)
-        .filter(
-            (factory) =>
-                factory.productionLogic.productionDefinition.producables.some(
-                    (resource) => resource.resourceName === material
-                ) ||
-                (material === 'power' && factory.productionLogic.productionDefinition.powerOutput != null)
-        );
+    const materialFactories = factories.filter(
+        (factory) =>
+            factory.productionLogic.productionDefinition.producables.some(
+                (resource) => resource.resourceName === material
+            ) ||
+            (material === 'power' && factory.productionLogic.productionDefinition.powerOutput != null)
+    );
 
     const first = materialFactories.shift();
 
@@ -147,7 +147,7 @@ function findMaterialFactories<M extends Material>(material: M): [IFactory<M>, .
 function mapFactory<M extends Material>(building: IConfigFactory): IFactory<M> {
     const production = building.productionLogic.productionDefinition;
 
-    const buildCost = building.costs.reduce<Partial<Record<Material, number>>>(
+    const buildCost = (building.costs ?? []).reduce<Partial<Record<Material, number>>>(
         (lookup, cost) => ({ ...lookup, [cost.resourceName]: cost.amount }),
         {}
     );
@@ -181,7 +181,7 @@ function mapFactory<M extends Material>(building: IConfigFactory): IFactory<M> {
 function isConfigFactory(value: unknown): value is IConfigFactory {
     const factory = value as IConfigFactory;
 
-    return factory.productionLogic?.type === 'factory' && Array.isArray(factory.costs);
+    return factory.productionLogic?.type === 'factory';
 }
 
 function isConfigHabitat(value: unknown): value is IConfigHabitat {
