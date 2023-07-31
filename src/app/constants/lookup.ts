@@ -2,6 +2,26 @@ import { FactoryLookup, IFactory, Material, Materials } from '../contracts';
 import { buildings as buildingsImport } from './buildings';
 import { gameConfig } from './gameConfig';
 
+export type BuildingId = keyof typeof buildingsImport;
+
+export const buildingMaterialNameOverride: Partial<Record<Material | BuildingId, string>> = {
+    sciencePack1: 'Blue Science Pack',
+    sciencePack2: 'Green Science Pack',
+    sciencePack3: 'Yellow Science Pack',
+    sciencePack4: 'Red Science Pack',
+
+    sciencePack1Factory: 'Blue Science Pack Factory',
+    sciencePack2Factory: 'Green Science Pack Factory',
+    sciencePack3Factory: 'Yellow Science Pack Factory',
+    sciencePack4Factory: 'Red Science Pack Factory',
+
+    monumentDrill_Stage0: 'Adamantine Drill',
+    monumentDrill_Stage1: 'Adamantine Drill',
+    monumentDrill_Stage2: 'Adamantine Drill',
+    monumentDrill_Stage3: 'Adamantine Drill',
+    monumentDrill_Stage4: 'Adamantine Drill',
+};
+
 const residenceNames: (string | undefined)[] = [
     undefined, // in game config index 0 is empty
     'Basic Habitat',
