@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 
 import { factoryLookup } from '../../constants/lookup';
 import { Material, Materials } from '../../contracts';
+import { formatName } from '../../pipes';
 
 @Component({
     selector: 'material-selector',
@@ -11,7 +12,7 @@ import { Material, Materials } from '../../contracts';
 export class MaterialSelectorComponent {
     private _materials = Array.from(Materials)
         .filter((material) => factoryLookup[material] != null)
-        .sort();
+        .sort((one, two) => formatName(one).localeCompare(formatName(two)));
 
     public get materials(): ReadonlyArray<Material> {
         return this._materials;
@@ -19,7 +20,8 @@ export class MaterialSelectorComponent {
 
     public get filteredMaterials(): ReadonlyArray<Material> {
         return this._materials.filter(
-            (item) => this._filterText == null || item.toLowerCase().indexOf(this._filterText.toLowerCase()) >= 0
+            (item) =>
+                this._filterText == null || formatName(item).toLowerCase().indexOf(this._filterText.toLowerCase()) >= 0
         );
     }
 

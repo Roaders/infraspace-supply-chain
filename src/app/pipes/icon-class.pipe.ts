@@ -16,13 +16,17 @@ const upperCase = /[A-Z0-9]/g;
 @Pipe({ name: 'formatName' })
 export class FormatNamePipe implements PipeTransform {
     transform(name: string) {
-        const overriddenName = buildingMaterialNameOverride[name as Material | BuildingId];
-
-        if (overriddenName != null) {
-            return overriddenName;
-        }
-
-        name = name.replace(/_/, '');
-        return `${name.charAt(0).toUpperCase()}${name.substring(1).replace(upperCase, (existing) => ` ${existing}`)}`;
+        return formatName(name);
     }
+}
+
+export function formatName(value: string): string {
+    const overriddenName = buildingMaterialNameOverride[value as Material | BuildingId];
+
+    if (overriddenName != null) {
+        return overriddenName;
+    }
+
+    value = value.replace(/_/, '');
+    return `${value.charAt(0).toUpperCase()}${value.substring(1).replace(upperCase, (existing) => ` ${existing}`)}`;
 }
