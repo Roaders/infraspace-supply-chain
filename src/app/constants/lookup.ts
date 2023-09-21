@@ -116,10 +116,13 @@ function mapResidence(
         return undefined;
     }
 
+    const citizen = configHabitat.productionLogic.maxInhabitants;
+    const multiplier = citizen / 10;
+
     const input = resources
         .filter((resource) => factories[resource.resourceName] != null)
         .reduce<Partial<Record<Material, number>>>(
-            (lookup, resource) => ({ ...lookup, [resource.resourceName]: resource.consumptionFactor }),
+            (lookup, resource) => ({ ...lookup, [resource.resourceName]: resource.consumptionFactor * multiplier }),
             {}
         );
 
@@ -127,7 +130,7 @@ function mapResidence(
         buildCost: { concrete: 10 },
         duration: 60,
         name,
-        output: { citizen: configHabitat.productionLogic.maxInhabitants },
+        output: { citizen },
         power: 0,
         workers: 0,
         input,
